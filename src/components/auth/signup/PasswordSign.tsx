@@ -41,7 +41,7 @@ const PasswordSign = () => {
       <S.Backward
         src={BackBtn}
         onClick={() => {
-          navigate("/signup/email");
+          navigate(-1);
         }}
       />
       <S.PageTitle>

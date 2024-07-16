@@ -34,7 +34,7 @@ const EmailSign = () => {
       <S.Backward
         src={BackBtn}
         onClick={() => {
-          navigate("/signup");
+          navigate(-1);
         }}
       />
       <S.PageTitle>
