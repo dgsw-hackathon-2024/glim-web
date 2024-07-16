@@ -1,2 +1,3 @@
-# glim-web
-2024 DGSW 해커톤 glim web서비스
+# lawbot-web
+
+2024 dgsw hackathon lawbot web service
