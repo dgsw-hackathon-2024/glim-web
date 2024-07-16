@@ -5,11 +5,11 @@ export const Container = styled.div`
   height: 100vh;
   aspect-ratio: 1/1.9;
   margin: 0 auto;
-  box-shadow: 0px 0px 50px 30px gray;
+  box-shadow: 0px 0px 50px 30px rgba(255, 255, 255, 0.2);
   background-color: #1c1d28;
-  position:relative;
-  display:flex;
-  justify-content:center;
+  position: relative;
+  display: flex;
+  justify-content: center;
 `;
 
 export const Button = styled.button`
@@ -21,10 +21,10 @@ export const Button = styled.button`
   outline: none;
   font-size: 25px;
   font-weight: bolder;
-  font-family:'Pretendard-Regular', sans-serif;
+  font-family: "Pretendard-Regular", sans-serif;
   position: absolute;
   bottom: 55px;
-  color:#1C1D28;
+  color: #1c1d28;
   cursor: pointer;
   &:active {
     background-color: #2ed197;
@@ -70,10 +70,10 @@ export const PageDescription = styled.p`
 `;
 
 export const InputWrap = styled.div`
-  width:80%;
-  position:absolute;
-  top:400px;
-`
+  width: 80%;
+  position: absolute;
+  top: 400px;
+`;
 
 export const Input = styled.input`
   width: 100%;
@@ -100,25 +100,25 @@ export const WarnMsg = styled.div`
 `;
 
 export const Backward = styled.img`
-  margin:0;
-  position:absolute;
-  top:50px;
-  left:50px;
+  margin: 0;
+  position: absolute;
+  top: 50px;
+  left: 50px;
   cursor: pointer;
-`
+`;
 
 export const LogoWrap = styled.div`
-  width:45%;
-  position:absolute;
-  top:270px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  flex-direction:column;
-`
+  width: 45%;
+  position: absolute;
+  top: 270px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+`;
 export const LogoImage = styled.img`
-  width:70%;
-`
+  width: 70%;
+`;
 export const LogoName = styled.img`
-  width:100%;
-`
+  width: 100%;
+`;

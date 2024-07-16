@@ -14,8 +14,7 @@ const EmailSign = () => {
 
   const handleEmail = (e: any) => {
     const content = e.target.value;
-    const regex =
-      /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+    const regex = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
     if (regex.test(content)) {
       setEmailValid(true);
     } else {
@@ -57,11 +56,7 @@ const EmailSign = () => {
             }
           }}
         />
-        <S.WarnMsg>
-          {!emailValid && email.length > 0
-            ? "올바른 이메일 형식을 입력하세요."
-            : ""}
-        </S.WarnMsg>
+        <S.WarnMsg>{!emailValid && email.length > 0 ? "올바른 이메일 형식을 입력하세요." : ""}</S.WarnMsg>
       </S.InputWrap>
       <S.Button onClick={submit}>넘어가기</S.Button>
     </S.Container>
