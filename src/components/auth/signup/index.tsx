@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import * as S from '../../../styles/auth/signup'
+import * as S from '../style'
 import LogoName from 'src/assets/LawBot.svg';
 import LogoImg from 'src/assets/Logo.svg'
 

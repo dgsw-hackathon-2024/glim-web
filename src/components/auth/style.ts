@@ -57,6 +57,9 @@ export const PageTitle = styled.h1`
   margin: 0;
   color: #ffffff;
   top: 200px;
+  font-weight: 600;
+  font-size: 1.6rem;
+  line-height: 130%;
 `;
 export const PageDescription = styled.p`
   width: 80%;
@@ -71,6 +74,9 @@ export const PageDescription = styled.p`
 
 export const InputWrap = styled.div`
   width: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   position: absolute;
   top: 400px;
 `;

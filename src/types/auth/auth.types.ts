@@ -10,3 +10,8 @@ export interface LoginResponse extends BaseResponse {
 export interface NewAccessTokenReponse extends BaseResponse {
   accessToken: string;
 }
+
+export interface LoginData {
+  email: string;
+  password: string;
+}
