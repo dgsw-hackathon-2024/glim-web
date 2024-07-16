@@ -1,41 +1,38 @@
 import { useNavigate } from "react-router-dom";
-import * as S from "src/styles/auth/signup";
-import BackBtn from 'src/assets/backward.svg'
+import * as S from "../style";
+import BackBtn from "src/assets/backward.svg";
 import { useEffect, useState } from "react";
-import { CustomSwal } from "src/libs/swal/customSwal";
+import lawBotSwal from "src/libs/swal/customSwal";
 
 const PasswordSign = () => {
-
-  const [password,setPassword] = useState('');
-  const [passwordChk,setPasswordChk] = useState('');
+  const [password, setPassword] = useState("");
+  const [passwordChk, setPasswordChk] = useState("");
 
   const [passwordValid, setPasswordValid] = useState(false);
 
-  const swal = new CustomSwal();
-
-  const handlePassword = (e:any) => {
+  const handlePassword = (e: any) => {
     setPassword(e.target.value);
-  }
+  };
 
   const handlePasswordChk = (e: any) => {
     setPasswordChk(e.target.value);
   };
 
-  useEffect(()=>{
-    if(password === passwordChk && password.length > 0) {
+  useEffect(() => {
+    if (password === passwordChk && password.length > 0) {
       setPasswordValid(true);
-    }else{
+    } else {
       setPasswordValid(false);
     }
-  },[password,passwordChk]);
+  }, [password, passwordChk]);
 
   const submit = () => {
-    if(passwordValid) {
+    if (passwordValid) {
       navigate("/login");
-    }else{
-      swal.error('비밀번호를 올바르게 입력해 주세요.');
+    } else {
+      lawBotSwal.errorToast("비밀번호를 올바르게 입력해 주세요.");
     }
-  }
+  };
 
   const navigate = useNavigate();
 
@@ -77,16 +74,10 @@ const PasswordSign = () => {
           }}
         />
         <S.WarnMsg>
-          {!passwordValid && password.length > 0 && passwordChk.length > 0
-            ? "비밀번호가 틀립니다."
-            : ""}
+          {!passwordValid && password.length > 0 && passwordChk.length > 0 ? "비밀번호가 틀립니다." : ""}
         </S.WarnMsg>
       </S.InputWrap>
-      <S.Button
-        onClick={submit}
-      >
-        완료하기
-      </S.Button>
+      <S.Button onClick={submit}>완료하기</S.Button>
     </S.Container>
   );
 };
