@@ -32,8 +32,8 @@ const useLogin = () => {
       },
       {
         onSuccess: (res) => {
-          token.setToken(ACCESS_TOKEN_KEY, res.data.accessToken);
-          token.setToken(REFRESH_TOKEN_KEY, res.data.refreshToken);
+          token.setToken(ACCESS_TOKEN_KEY, res.data.token);
+
           lawBotSwal.successToast("로그인 성공");
           navigate("/");
         },
