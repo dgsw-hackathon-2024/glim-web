@@ -63,8 +63,9 @@ const PasswordSign = () => {
               submit();
             }
           }}
+          style={{marginBottom:'20px'}}
         />
-        <S.WarnMsg></S.WarnMsg>
+        
         <S.Input
           type="password"
           placeholder="비밀번호 확인"
