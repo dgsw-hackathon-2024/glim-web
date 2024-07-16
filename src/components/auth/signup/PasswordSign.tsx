@@ -3,12 +3,18 @@ import * as S from "../style";
 import BackBtn from "src/assets/backward.svg";
 import { useEffect, useState } from "react";
 import lawBotSwal from "src/libs/swal/customSwal";
+import { signInfoStore } from "src/store/auth/signInfoStore";
+import useSignup from "src/hooks/auth/signup/useSignup";
 
 const PasswordSign = () => {
   const [password, setPassword] = useState("");
   const [passwordChk, setPasswordChk] = useState("");
 
   const [passwordValid, setPasswordValid] = useState(false);
+
+  const globalEmail = signInfoStore(state=>state.email);
+
+  const { ...signup } = useSignup();
 
   const handlePassword = (e: any) => {
     setPassword(e.target.value);
@@ -28,7 +34,7 @@ const PasswordSign = () => {
 
   const submit = () => {
     if (passwordValid) {
-      navigate("/login");
+      signup.onSubmit(globalEmail,password);
     } else {
       lawBotSwal.errorToast("비밀번호를 올바르게 입력해 주세요.");
     }

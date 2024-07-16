@@ -3,7 +3,10 @@ import { LoginData } from "src/types/auth/auth.types";
 import React, { useCallback, useState } from "react";
 import lawBotSwal from "src/libs/swal/customSwal";
 import token from "src/libs/token/token";
-import { ACCESS_TOKEN_KEY, REFRESH_TOKEN_KEY } from "src/constants/token/token.constants";
+import {
+  ACCESS_TOKEN_KEY,
+  REFRESH_TOKEN_KEY,
+} from "src/constants/token/token.constants";
 import { useNavigate } from "react-router-dom";
 import { AxiosError } from "axios";
 
@@ -19,7 +22,7 @@ const useLogin = () => {
       const { name, value } = e.target;
       setLoginData((prev) => ({ ...prev, [name]: value }));
     },
-    [setLoginData],
+    [setLoginData]
   );
 
   const loginMutation = useLoginMuatation();
@@ -32,8 +35,7 @@ const useLogin = () => {
       },
       {
         onSuccess: (res) => {
-          token.setToken(ACCESS_TOKEN_KEY, res.data.token);
-
+          token.setToken(ACCESS_TOKEN_KEY, res.token);
           lawBotSwal.successToast("로그인 성공");
           navigate("/");
         },
@@ -46,7 +48,7 @@ const useLogin = () => {
             lawBotSwal.errorToast("알 수 없는 에러가 발생하였습니다.");
           }
         },
-      },
+      }
     );
   };
   return {

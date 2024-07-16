@@ -3,12 +3,15 @@ import * as S from "../style";
 import BackBtn from "src/assets/backward.svg";
 import { useState } from "react";
 import lawBotSwal from "src/libs/swal/customSwal";
+import { signInfoStore } from "src/store/auth/signInfoStore";
 
 const EmailSign = () => {
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
   const [emailValid, setEmailValid] = useState(false);
+
+  const setGlobalEmail = signInfoStore(state=>state.setEmail);
 
   const handleEmail = (e: any) => {
     const content = e.target.value;
@@ -23,6 +26,7 @@ const EmailSign = () => {
 
   const submit = () => {
     if (emailValid) {
+      setGlobalEmail(email);
       navigate("/signup/password");
     } else {
       lawBotSwal.errorToast("올바른 이메일 형식을 입력해 주세요.");

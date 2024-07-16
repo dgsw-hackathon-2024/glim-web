@@ -1,8 +1,15 @@
-import { LoginResponse, NewAccessTokenReponse } from "src/types/auth/auth.types";
+import {
+  LoginResponse,
+  NewAccessTokenReponse,
+  SignData,
+} from "src/types/auth/auth.types";
 
 export interface AuthRepository {
   login(loginData: LoginData): Promise<LoginResponse>;
-  refreshAccessToken(refreshToken: { refreshToken: string }): Promise<NewAccessTokenReponse>;
+  signup(signData: SignData): Promise<void>;
+  refreshAccessToken(refreshToken: {
+    refreshToken: string;
+  }): Promise<NewAccessTokenReponse>;
 }
 
 export interface LoginData {
