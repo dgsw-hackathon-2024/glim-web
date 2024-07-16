@@ -21,6 +21,7 @@ export const Button = styled.button`
   outline: none;
   font-size: 25px;
   font-weight: bolder;
+  font-family:'Pretendard-Regular', sans-serif;
   position: absolute;
   bottom: 55px;
   color:#1C1D28;
@@ -31,37 +32,41 @@ export const Button = styled.button`
 `;
 
 export const LoginLinkWrap = styled.div`
-  width:100%;
-  position:absolute;
-  bottom:20px;
-  color:white;
-  text-align:center;
-  font-weight:200;
-`
+  width: 100%;
+  position: absolute;
+  bottom: 20px;
+  color: white;
+  text-align: center;
+  font-weight: 200;
+  font-family: "Pretendard-Regular", sans-serif;
+`;
 export const LoginLink = styled(Link)`
   text-decoration: none;
   color: #6cf3c3;
   font-weight: bold;
+  font-family: "Pretendard-Regular", sans-serif;
   &:active {
     color: #2ed197;
   }
 `;
 
 export const PageTitle = styled.h1`
-  width:80%;
-  position:absolute;
-  margin:0;
-  color:#FFFFFF;
-  top:200px;
-`
-export const PageDescription = styled.p`
-  width:80%;
+  width: 80%;
+  position: absolute;
+  font-family: "Pretendard-Regular", sans-serif;
   margin: 0;
-  position:absolute;
+  color: #ffffff;
+  top: 200px;
+`;
+export const PageDescription = styled.p`
+  width: 80%;
+  margin: 0;
+  position: absolute;
+  font-family: "Pretendard-Regular", sans-serif;
   top: 300px;
   font-weight: 200;
-  color: #A6ABAF;
-  font-size:15px;
+  color: #a6abaf;
+  font-size: 15px;
 `;
 
 export const InputWrap = styled.div`
@@ -77,11 +82,12 @@ export const Input = styled.input`
   border: none;
   border-bottom: 2px solid #6cf3c3;
   background-color: transparent;
+  font-family: "Pretendard-Regular", sans-serif;
   color: #6cf3c3;
-  font-size:20px;
-  &::placeholder{
-    color:#808080;
-    font-weight:200;
+  font-size: 20px;
+  &::placeholder {
+    color: #808080;
+    font-weight: 200;
   }
 `;
 export const WarnMsg = styled.div`
@@ -90,6 +96,7 @@ export const WarnMsg = styled.div`
   color: #feea31;
   margin-top: 10px;
   margin-bottom: 30px;
+  font-family: "Pretendard-Regular", sans-serif;
 `;
 
 export const Backward = styled.img`
@@ -98,4 +105,20 @@ export const Backward = styled.img`
   top:50px;
   left:50px;
   cursor: pointer;
+`
+
+export const LogoWrap = styled.div`
+  width:45%;
+  position:absolute;
+  top:270px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+`
+export const LogoImage = styled.img`
+  width:70%;
+`
+export const LogoName = styled.img`
+  width:100%;
 `
