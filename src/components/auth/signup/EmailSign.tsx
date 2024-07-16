@@ -1,16 +1,14 @@
 import { useNavigate } from "react-router-dom";
-import * as S from "../../../styles/auth/signup";
+import * as S from "../style";
 import BackBtn from "src/assets/backward.svg";
 import { useState } from "react";
-import { CustomSwal } from "src/libs/swal/customSwal";
+import lawBotSwal from "src/libs/swal/customSwal";
 
 const EmailSign = () => {
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
   const [emailValid, setEmailValid] = useState(false);
-
-  const swal = new CustomSwal();
 
   const handleEmail = (e: any) => {
     const content = e.target.value;
@@ -27,7 +25,7 @@ const EmailSign = () => {
     if (emailValid) {
       navigate("/signup/password");
     } else {
-      swal.error("올바른 이메일 형식을 입력해 주세요.");
+      lawBotSwal.errorToast("올바른 이메일 형식을 입력해 주세요.");
     }
   };
 
@@ -36,7 +34,7 @@ const EmailSign = () => {
       <S.Backward
         src={BackBtn}
         onClick={() => {
-          navigate("/signup");
+          navigate(-1);
         }}
       />
       <S.PageTitle>
