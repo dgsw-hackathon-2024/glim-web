@@ -1,63 +1,60 @@
-import axios, { AxiosError } from "axios";
-import { ACCESS_TOKEN_KEY, REFRESH_TOKEN_KEY, REQUEST_TOKEN_KEY } from "src/constants/token/token.constants";
-import token from "../token/token";
-import { alimoV1Axios } from "./customAxios";
-import CONFIG from "src/config/config.json";
+import { AxiosError } from "axios";
+import Token from "../token/token";
+import dearAxios from "./customAxios";
+import { REQUEST_TOKEN_KEY, ACCESS_TOKEN_KEY, REFRESH_TOKEN_KEY } from "../../constants/token/token.constants";
+import AuthRepositoryImpl from "@src/repositories/auth/authRepositoryImpl";
 
 let isRefreshing = false;
 let refreshSubscribers: ((accessToken: string) => void)[] = [];
 
 const onTokenRefreshed = (accessToken: string) => {
-  refreshSubscribers.map((callback) => callback(accessToken));
+  refreshSubscribers.forEach((callback) => callback(accessToken));
 };
 
 const addRefreshSubscriber = (callback: (accessToken: string) => void) => {
   refreshSubscribers.push(callback);
 };
 
-const errorResponseHandler = async (error: AxiosError) => {
+const ResponseHandler = async (error: AxiosError) => {
   if (error.response) {
     const {
       config: originalRequest,
       response: { status },
     } = error;
-    const usingAccessToken = token.getToken(ACCESS_TOKEN_KEY);
-    const usingRefreshToken = token.getToken(REFRESH_TOKEN_KEY);
 
-    if (usingAccessToken !== undefined && usingRefreshToken !== undefined && status === 401) {
-      if (!isRefreshing) {
-        isRefreshing = true;
+    const usingAccessToken = Token.getToken(ACCESS_TOKEN_KEY);
+    const usingRefreshToken = Token.getToken(REFRESH_TOKEN_KEY);
 
-        try {
-          const data = await axios.post(`${CONFIG.serverUrl}/refresh`, {
-            refreshToken: usingRefreshToken,
-          });
-          const newAccessToken = data.data.data.accessToken;
+    if (status === 401 && usingAccessToken !== undefined && usingRefreshToken !== undefined && !isRefreshing) {
+      isRefreshing = true;
 
-          token.setToken(ACCESS_TOKEN_KEY, newAccessToken);
-
-          isRefreshing = false;
-          onTokenRefreshed(newAccessToken);
-        } catch (error) {
-          token.clearToken();
-          window.location.href = "/login";
-        }
-      }
-
-      return new Promise((resolve, reject) => {
-        addRefreshSubscriber((accessToken: string) => {
-          if (originalRequest) {
-            originalRequest.headers![REQUEST_TOKEN_KEY] = `Bearer ${accessToken}`;
-            resolve(alimoV1Axios(originalRequest));
-          } else {
-            reject("originalRequest is undefined");
-          }
+      try {
+        const { accessToken: newAccessToken } = await AuthRepositoryImpl.refreshAccessToken({
+          refreshToken: usingRefreshToken,
         });
-      });
+        dearAxios.defaults.headers.common[REQUEST_TOKEN_KEY] = `Bearer ${newAccessToken}`;
+
+        Token.setToken(ACCESS_TOKEN_KEY, newAccessToken);
+
+        isRefreshing = false;
+        onTokenRefreshed(newAccessToken);
+
+        return new Promise((resolve) => {
+          addRefreshSubscriber((accessToken: string) => {
+            originalRequest!.headers![REQUEST_TOKEN_KEY] = `Bearer ${accessToken}`;
+            resolve(dearAxios(originalRequest!));
+          });
+        });
+      } catch (error) {
+        console.error("Failed to refresh access token:", error);
+        Token.clearToken();
+        window.alert("세션이 만료되었습니다.");
+        window.location.href = "/login";
+      }
     }
   }
 
   return Promise.reject(error);
 };
 
-export default errorResponseHandler;
+export default ResponseHandler;

@@ -2,15 +2,11 @@ import cookie from "js-cookie";
 
 class Cookie {
   public getCookie(key: string): string | undefined {
-    let item = undefined;
-    if (cookie.get(key) !== undefined) {
-      item = cookie.get(key);
-    }
-    return item;
+    return cookie.get(key);
   }
 
-  public setCookie(key: string, value: string): void {
-    cookie.set(key, value);
+  public setCookie(key: string, value: string, options?: { [key: string]: any }): void {
+    cookie.set(key, value, options);
   }
 
   public removeCookie(key: string): void {

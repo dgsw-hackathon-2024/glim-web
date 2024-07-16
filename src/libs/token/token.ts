@@ -1,22 +1,18 @@
-import cookie from "../cookie/cookie";
-import {
-  ACCESS_TOKEN_KEY,
-  REFRESH_TOKEN_KEY,
-} from "@src/constants/token/token.constants";
+import cookies from "src/libs/cookie/cookie";
+import { ACCESS_TOKEN_KEY, REFRESH_TOKEN_KEY } from "src/constants/token/token.constants";
 
 class Token {
-  public getToken(key: string): string | undefined {
-    return cookie.getCookie(key);
+  public getToken(key: typeof ACCESS_TOKEN_KEY | typeof REFRESH_TOKEN_KEY): string | undefined {
+    return cookies.getCookie(key);
   }
-
-  public setToken(key: string, token: string): void {
-    cookie.setCookie(key, token);
+  public setToken(key: typeof ACCESS_TOKEN_KEY | typeof REFRESH_TOKEN_KEY, token: string): void {
+    cookies.setCookie(key, token);
   }
-
   public clearToken() {
-    cookie.removeCookie(ACCESS_TOKEN_KEY);
-    cookie.removeCookie(REFRESH_TOKEN_KEY);
+    cookies.removeCookie(ACCESS_TOKEN_KEY);
+    cookies.removeCookie(REFRESH_TOKEN_KEY);
   }
 }
 
-export default new Token();
+const token = new Token();
+export default token;
