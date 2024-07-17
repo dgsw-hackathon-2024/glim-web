@@ -4,7 +4,7 @@ const Toast = Swal.mixin({
   toast: true,
   position: "top-end",
   showConfirmButton: false,
-  timer: 3000,
+  timer: 2000,
   timerProgressBar: true,
   didOpen: (toast) => {
     toast.addEventListener("mouseenter", Swal.stopTimer);
@@ -14,13 +14,22 @@ const Toast = Swal.mixin({
 
 class LawBotSwal {
   public successToast(tilte: string) {
-    return Toast.fire("success", tilte);
+    Toast.fire({
+      icon: "success",
+      title: tilte,
+    });
   }
   public errorToast(title: string) {
-    return Toast.fire("error", title);
+    Toast.fire({
+      icon: "error",
+      title: title,
+    });
   }
   public infoToast(title: string) {
-    return Toast.fire("info", title);
+    Toast.fire({
+      icon: "info",
+      title: title,
+    });
   }
 }
 

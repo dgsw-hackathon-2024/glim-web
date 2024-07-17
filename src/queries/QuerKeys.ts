@@ -3,4 +3,8 @@ export const QUERY_KEYS = Object.freeze({
     postReport: "/report",
     getReport: "/report/list",
   },
+
+  chat: {
+    chat: "/ai/chat",
+  },
 });
