@@ -16,6 +16,7 @@ import Committee from "../main/committee";
 import CommitteeWrite from "../main/committee/write";
 import Report from "../main/report/index";
 import LawAnalyze from "../main/LawAnalyze";
+import CompleteTest from "../main/test/complete";
 
 const Router = () => {
   const queryClient = new QueryClient({
@@ -43,6 +44,7 @@ const Router = () => {
           <Route path="/test/3" element={<Test3 />} />
           <Route path="/test/4" element={<Test4 />} />
           <Route path="/test/5" element={<Test5 />} />
+          <Route path="/test/complete" element={<CompleteTest />} />
           <Route path="/committee" element={<Committee />} />
           <Route path="/committee/write" element={<CommitteeWrite />} />
           <Route path="/report" element={<Report />} />

@@ -145,3 +145,33 @@ export const Button = styled.button`
     background-color: #2ed197;
   }
 `;
+
+export const CompleteWrap = styled.div`
+  width: 60%;
+  height: 50%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-items: center;
+  justify-content: flex-end;
+
+  gap: 10px;
+  h1 {
+    font-family: "Pretendard";
+    font-size: 64px;
+    font-weight: 900;
+    color: #fff;
+
+    span {
+      color: #6cf3c3;
+    }
+  }
+
+  p {
+    font-size: 25px;
+    font-weight: 600;
+    color: #fff;
+    margin-top: 20px;
+  }
+`;
