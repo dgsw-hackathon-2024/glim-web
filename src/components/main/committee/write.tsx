@@ -1,7 +1,17 @@
 import Header from "src/components/common/header";
 import * as S from "./style";
+import { useNavigate } from "react-router-dom";
+import ChatBotButton from "src/assets/chatbotButon.svg";
+import NavWriteReport from "src/assets/NavWriteReportButon.svg";
+import UploadBtn from "src/assets/committeeUpload.svg";
+import useCommittee from "src/hooks/committee/useCommittee";
 
 const CommitteeWrite = () => {
+
+  const navigate = useNavigate();
+  const { ...committee } = useCommittee();
+
+
   return (
     <S.Container>
       <Header />
@@ -20,9 +30,28 @@ const CommitteeWrite = () => {
           </S.PageDescription>
         </S.PageWordWrap>
         <S.DetailWrap>
-          
+          <S.CommitteeWriteBox>
+            <S.CommitteeWriteTitle
+              placeholder="제목을 입력해주세요."
+              name="title"
+              value={committee.uplaodData.title}
+              onChange={committee.handleUploadData}
+            />
+            <S.CommitteeWriteContent
+              placeholder="내용을 입력해주세요."
+              name="contents"
+              value={committee.uplaodData.contents}
+              onChange={committee.handleUploadData}
+            />
+            <S.UploadButton src={UploadBtn} onClick={committee.onSubmit}/>
+          </S.CommitteeWriteBox>
         </S.DetailWrap>
       </S.View>
+      <S.ChatBotButton src={ChatBotButton} />
+      <S.WriteReportButton
+        src={NavWriteReport}
+        onClick={() => navigate("/committee/write")}
+      />
     </S.Container>
   );
 };
