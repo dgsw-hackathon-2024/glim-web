@@ -1,3 +1,4 @@
+import ProgressBar from "src/components/common/progressbar";
 import * as S from "../style";
 import React from "react";
 import { useNavigate } from "react-router-dom";
@@ -9,15 +10,7 @@ const Test1 = () => {
     <S.Container>
       <S.Backward src={Back} onClick={() => navigate(-1)} />
       <S.Main>
-        <S.ProgressBarWrap>
-          <S.ProgressBar>
-            <span></span>
-          </S.ProgressBar>
-          <div>
-            <h1>Q. 현재 정부 정책 인지도 테스트</h1>
-            <h1 style={{ color: "#6CF3C3" }}>1/5</h1>
-          </div>
-        </S.ProgressBarWrap>
+        <ProgressBar width={25} page={1} />
         <S.PageTitle>
           나는 현 정권의 선거공약을
           <br />

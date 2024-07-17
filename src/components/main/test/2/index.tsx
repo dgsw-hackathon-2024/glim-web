@@ -2,6 +2,7 @@ import React from "react";
 import * as S from "../style";
 import Back from "src/assets/backward.svg";
 import { useNavigate } from "react-router-dom";
+import ProgressBar from "src/components/common/progressbar";
 
 const Test2 = () => {
   const navigate = useNavigate();
@@ -9,15 +10,7 @@ const Test2 = () => {
     <S.Container>
       <S.Backward src={Back} onClick={() => navigate(-1)} />
       <S.Main>
-        <S.ProgressBarWrap>
-          <S.ProgressBar>
-            <span style={{ width: "35%" }}></span>
-          </S.ProgressBar>
-          <div>
-            <h1>Q. 현재 정부 정책 인지도 테스트</h1>
-            <h1 style={{ color: "#6CF3C3" }}>2/5</h1>
-          </div>
-        </S.ProgressBarWrap>
+        <ProgressBar width={40} page={2} />
         <S.PageTitle>
           나는 대한민국의 역대 대통령을
           <br />

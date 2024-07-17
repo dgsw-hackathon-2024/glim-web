@@ -1,5 +1,5 @@
 import { pallete } from "src/styles/theme";
-import styled from "styled-components";
+import styled, { keyframes, css } from "styled-components";
 
 export const Container = styled.div`
   height: 100vh;
@@ -61,6 +61,27 @@ export const ProgressBarWrap = styled.div`
     font-size: 1rem;
     color: white;
   }
+`;
+
+export const ProgressBarKeyframse = keyframes`
+  0% {
+    width: 25%;
+  } 20% {
+    width: 40%;
+  } 40% {
+    width: 55%;
+  } 60% {
+    width: 70%;
+  } 80% {
+    width: 85%;
+  } 100% {
+    width: 100%;
+  }
+`;
+
+export const ProgressBarAnimation = css`
+  transition: all;
+  animation: ${ProgressBarKeyframse} 1s linear;
 `;
 
 export const ProgressBar = styled.div`
