@@ -41,8 +41,8 @@ const Router = () => {
           <Route path="/test/3" element={<Test3 />} />
           <Route path="/test/4" element={<Test4 />} />
           <Route path="/test/5" element={<Test5 />} />
-          <Route path="committee" element={<Committee />} />
-          <Route path="committee/write" element={<CommitteeWrite />} />
+          <Route path="/committee" element={<Committee />} />
+          <Route path="/committee/write" element={<CommitteeWrite />} />
         </Routes>
       </QueryClientProvider>
     </BrowserRouter>
