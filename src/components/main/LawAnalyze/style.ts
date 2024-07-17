@@ -94,7 +94,7 @@ export const UploadButton = styled.img`
 
 export const AnserWrap = styled.div`
   width: 100%;
-  min-height: 400px;
+  height: 400px;
   margin-top: 30px;
   background-color: transparent;
   overflow-y: scroll;
