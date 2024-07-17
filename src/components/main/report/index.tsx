@@ -33,9 +33,7 @@ const Report = () => {
         <S.ReportWrap>
           <S.DetailTitle>
             진행중인 청원 총{" "}
-            <span style={{ color: "#6CF3C3", background: "transparent" }}>
-              {report.reportList.length}건
-            </span>
+            <span style={{ color: "#6CF3C3", background: "transparent" }}>{report.reportList.length}건</span>
           </S.DetailTitle>
           <S.Reports>
             {report.reportList.reverse().map((item, idx) => (
@@ -102,7 +100,7 @@ const Report = () => {
           </S.ModalWriteWrap>
         </S.ModalContainer>
       ) : null}
-      {chatBotClick === true ? <ChatBot /> : <></>}
+      <ChatBotButton />
     </S.Container>
   );
 };

@@ -10,6 +10,7 @@ import { chatbotStore } from "src/store/chatbotStroe/chatbotStore";
 import ChatBot from "src/components/chat";
 import axios from "axios";
 import CONFIG from "src/config/config.json";
+import useChatbotButton from "src/hooks/common/chatbotButton/useChatbotButton";
 
 interface CommunityData {
   id: number;
@@ -28,7 +29,7 @@ const Committee = () => {
     likes: 0,
   });
   const [petitionList, setPetitionList] = useState<CommunityData[]>([]);
-
+  const { chatbotClick, handleChatbotClick } = useChatbotButton();
   const viewCommittee = (content: CommunityData) => {
     setCurrentView(content);
   };
@@ -57,16 +58,13 @@ const Committee = () => {
     getPetitionList();
   }, []);
 
-  useEffect(()=>{
-    petitionList.forEach((item)=>{
+  useEffect(() => {
+    petitionList.forEach((item) => {
       console.log(item.likes);
     });
-  },[petitionList]);
-
-  const chatBotClick = chatbotStore((state) => state.chatBotClick);
+  }, [petitionList]);
 
   const navigate = useNavigate();
-
 
   return (
     <S.Container>
@@ -131,7 +129,6 @@ const Committee = () => {
       ) : null}
       <ChatBotButton />
       <S.WriteReportButton src={NavWriteReport} onClick={() => navigate("/committee/write")} />
-      {chatBotClick === true ? <ChatBot /> : <></>}
     </S.Container>
   );
 };

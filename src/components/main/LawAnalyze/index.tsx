@@ -53,7 +53,7 @@ const LawAnalyze = () => {
           <S.AnserWrap>{analyze.response}</S.AnserWrap>
         </S.DetailWrap>
       </S.View>
-      {chatBotClick === true ? <ChatBot /> : <></>}
+      <ChatBotButton />
     </S.Container>
   );
 };

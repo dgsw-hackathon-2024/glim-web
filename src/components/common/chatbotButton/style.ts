@@ -7,4 +7,6 @@ export const ChatBotButton = styled.img`
   position: absolute;
   left: 80%;
   top: 88%;
+
+  z-index: 5;
 `;
