@@ -5,6 +5,7 @@ import ChatBotButton from "src/assets/chatbotButon.svg";
 import NavWriteReport from "src/assets/NavWriteReportButon.svg";
 import ReportModal from "./reportModal";
 import useReport from "src/hooks/report/useReport";
+import ChatBot from "src/components/chat";
 
 const Report = () => {
   const { ...report } = useReport();
@@ -38,9 +39,10 @@ const Report = () => {
           </S.ReportWrap>
         </S.ReportMainWrap>
         <S.WriteReportButton src={NavWriteReport} onClick={report.handleIsClicked} />
-        <S.ChatBotButton src={ChatBotButton} />
+        <S.ChatBotButton src={ChatBotButton} onClick={report.handleChatbotClick} />
       </S.Main>
       {report.isClicked && <ReportModal />}
+      {report.chatbotClick && <ChatBot />}
     </S.Container>
   );
 };

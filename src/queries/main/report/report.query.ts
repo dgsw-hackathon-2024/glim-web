@@ -3,12 +3,12 @@ import { useMutation, useQueries } from "react-query";
 import reportRepositoryImpl from "src/repositories/main/report/reportRepositoryImpl";
 import { QUERY_KEYS } from "src/queries/QuerKeys";
 
-export const postReportMutation = () => {
+export const PostReportMutation = () => {
   const mutation = useMutation((reportData: ReportData) => reportRepositoryImpl.postReport(reportData));
   return mutation;
 };
 
-export const useGetReportQuery = () =>
+export const GetReportQuery = () =>
   useQueries([
     {
       queryKey: [QUERY_KEYS.report.getReport],
@@ -17,7 +17,7 @@ export const useGetReportQuery = () =>
     },
   ]);
 
-export const useGetReportDetailQuery = (id: number) =>
+export const GetReportDetailQuery = (id: number) =>
   useQueries([
     {
       queryKey: [QUERY_KEYS.report.getReport],

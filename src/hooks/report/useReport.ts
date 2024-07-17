@@ -1,6 +1,6 @@
 import { UploadReportData } from "src/types/report/report.types";
 import React, { useCallback, useRef, useState } from "react";
-import { postReportMutation, useGetReportDetailQuery, useGetReportQuery } from "src/queries/main/report/report.query";
+import { PostReportMutation, GetReportDetailQuery, GetReportQuery } from "src/queries/main/report/report.query";
 import lawBotSwal from "src/libs/swal/customSwal";
 
 const useReport = () => {
@@ -10,6 +10,7 @@ const useReport = () => {
   });
   const [isClicked, setIsClicked] = useState<boolean>(false);
   const [postClick, setPostClick] = useState<boolean>(false);
+  const [chatbotClick, setChatbotClick] = useState<boolean>(false);
   const handleUploadData = useCallback(
     (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => {
       const { name, value } = e.target;
@@ -26,7 +27,7 @@ const useReport = () => {
     setPostClick((prev) => !prev);
   };
 
-  const postReport = postReportMutation();
+  const postReport = PostReportMutation();
 
   const onSubmit = () => {
     postReport.mutate(
@@ -45,15 +46,19 @@ const useReport = () => {
     );
   };
 
+  const handleChatbotClick = () => {
+    setChatbotClick((prev) => !prev);
+  };
+
   const getReportList = () => {
-    const [{ data: reportList }] = useGetReportQuery();
+    const [{ data: reportList }] = GetReportQuery();
     if (reportList !== undefined && reportList !== undefined && reportList.data.length > 0) {
       return reportList;
     }
   };
 
   const getReportDetail = (id: number) => {
-    const [{ data: reportDetail }] = useGetReportDetailQuery(id);
+    const [{ data: reportDetail }] = GetReportDetailQuery(id);
 
     if (reportDetail !== undefined && reportDetail !== undefined) {
       return reportDetail;
@@ -63,10 +68,12 @@ const useReport = () => {
   return {
     isClicked,
     postClick,
+    chatbotClick,
     uplaodData,
     handleUploadData,
     handleIsClicked,
     handlePostClick,
+    handleChatbotClick,
 
     onSubmit,
     getReportList,
