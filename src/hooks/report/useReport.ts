@@ -10,16 +10,13 @@ const useReport = () => {
   });
   const [isClicked, setIsClicked] = useState<boolean>(false);
   const [postClick, setPostClick] = useState<boolean>(false);
+  const [chatbotClick, setChatbotClick] = useState<boolean>(false);
   const handleUploadData = useCallback(
-    (
-      e:
-        | React.ChangeEvent<HTMLInputElement>
-        | React.ChangeEvent<HTMLTextAreaElement>
-    ) => {
+    (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => {
       const { name, value } = e.target;
       setUploadData((prev) => ({ ...prev, [name]: value }));
     },
-    [setUploadData]
+    [setUploadData],
   );
 
   const handleIsClicked = () => {
@@ -45,17 +42,17 @@ const useReport = () => {
         onError: () => {
           lawBotSwal.errorToast("알 수 없는 에러가 발생하였습니다.");
         },
-      }
+      },
     );
+  };
+
+  const handleChatbotClick = () => {
+    setChatbotClick((prev) => !prev);
   };
 
   const getReportList = () => {
     const [{ data: reportList }] = GetReportQuery();
-    if (
-      reportList !== undefined &&
-      reportList !== undefined &&
-      reportList.data.length > 0
-    ) {
+    if (reportList !== undefined && reportList !== undefined && reportList.data.length > 0) {
       return reportList;
     }
   };
@@ -71,10 +68,12 @@ const useReport = () => {
   return {
     isClicked,
     postClick,
+    chatbotClick,
     uplaodData,
     handleUploadData,
     handleIsClicked,
     handlePostClick,
+    handleChatbotClick,
 
     onSubmit,
     getReportList,

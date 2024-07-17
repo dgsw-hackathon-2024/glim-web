@@ -15,7 +15,6 @@ const GlobalStyle = createGlobalStyle`
       padding: 0;
       border: none;
       color:black;
-      background: #1C1D28;
     }
     a {
       text-decoration: none;
