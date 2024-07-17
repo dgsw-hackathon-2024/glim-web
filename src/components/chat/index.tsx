@@ -1,9 +1,9 @@
-import React from "react";
 import * as S from "./style";
 import ChatBotButton from "src/assets/chatbotButon.svg";
 import ChatBoImg from "src/assets/ChatBotRoBot.svg";
 import Send from "src/assets/sendImg.svg";
 import useChat from "src/hooks/chat/useChat";
+import SendLoading from 'src/assets/sendLoading.gif';
 
 const ChatBot = () => {
   const { ...chat } = useChat();
@@ -47,12 +47,17 @@ const ChatBot = () => {
             onChange={chat.handleUserChat}
             placeholder="질문을 입력해주세요!"
           />
-          <img
-            src={Send}
-            alt=""
-            onClick={chat.sendChat}
-            style={{ cursor: "pointer" }}
-          />
+          <img src={SendLoading} />
+          {chat.isLoading ? (
+            <img src={SendLoading}/>
+          ) : (
+            <img
+              src={Send}
+              alt=""
+              onClick={chat.sendChat}
+              style={{ cursor: "pointer" }}
+            />
+          )}
         </S.SendWrap>
       </S.Main>
       <S.ChatBotButton src={ChatBotButton} />

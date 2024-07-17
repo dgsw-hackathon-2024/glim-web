@@ -11,24 +11,32 @@ const useChat = () => {
   const [isSuccess, setIsSuccess] = useState<boolean>(false);
   const chatMutation = ChatBotMutation();
   const [chattingList, setChattingList] = useState<ChatData[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleUserChat = (e: React.ChangeEvent<HTMLInputElement>) => {
     setChat(e.target.value);
   };
 
   const sendChat = async () => {
-    await axios
-      .post(`${CONFIG.serverUrl}/ai/chatbot`, {
-        chat,
-      })
-      .then((res) => {
-        setIsSuccess(true);
-        let data = {
-          user: chat,
-          ai: res.data,
-        };
-        setChattingList((prev) => [...prev, data]);
-      });
+    if(!isLoading) {
+      setIsLoading(true);
+      await axios
+        .post(`${CONFIG.serverUrl}/ai/chatbot`, {
+          chat,
+        })
+        .then((res) => {
+          setIsSuccess(true);
+          let data = {
+            user: chat,
+            ai: res.data,
+          };
+          setChat("");
+          setChattingList((prev) => [...prev, data]);
+        })
+        .finally(() => {
+          setIsLoading(false);
+        });
+    }
   };
 
   return {
@@ -39,6 +47,7 @@ const useChat = () => {
     handleUserChat,
     sendChat,
     chattingList,
+    isLoading
   };
 };
 

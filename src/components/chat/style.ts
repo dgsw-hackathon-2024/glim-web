@@ -88,7 +88,7 @@ export const ChatMessage = styled.div`
   line-height: 130%;
 
   color: #fff;
-  margin: 10px auto;
+  margin: 10px 17% 10px 13%;
 `;
 
 export const UserMessage = styled.div`
@@ -106,7 +106,8 @@ export const UserMessage = styled.div`
   width: 70%;
 
   line-height: 130%;
-  
+
+  margin: 10px 13% 10px 17%;
 
   div {
     color: #fff;
