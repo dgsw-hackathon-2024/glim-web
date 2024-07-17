@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { emailStore } from "@src/store/emailStore/emailStore";
+import { emailStore } from "src/store/emailStore/emailStore";
 import lawBotSwal from "src/libs/swal/customSwal";
 
 const useSignup = () => {

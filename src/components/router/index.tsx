@@ -15,7 +15,7 @@ import Test5 from "../main/test/5/index";
 import Committee from "../main/committee";
 import CommitteeWrite from "../main/committee/write";
 import Report from "../main/report/index";
-import LawAnalyze from "../LawAnalyze";
+import LawAnalyze from "../main/LawAnalyze";
 
 const Router = () => {
   const queryClient = new QueryClient({

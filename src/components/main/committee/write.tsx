@@ -5,6 +5,7 @@ import ChatBotButton from "src/assets/chatbotButon.svg";
 import NavWriteReport from "src/assets/NavWriteReportButon.svg";
 import UploadBtn from "src/assets/committeeUpload.svg";
 import useCommittee from "src/hooks/committee/useCommittee";
+import TabBar from "src/components/common/tabBar";
 
 const CommitteeWrite = () => {
 
@@ -16,11 +17,7 @@ const CommitteeWrite = () => {
     <S.Container>
       <Header />
       <S.View>
-        <S.TabBarWrap>
-          <S.Tab>Ai 정책 분석</S.Tab>
-          <S.Tab style={{ background: "#6CF3C3" }}>국민청원</S.Tab>
-          <S.Tab>안심신고</S.Tab>
-        </S.TabBarWrap>
+        <TabBar />
         <S.PageWordWrap>
           <S.PageTitle>국민청원 게시 및 동의</S.PageTitle>
           <S.PageDescription>

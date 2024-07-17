@@ -6,6 +6,7 @@ import NavWriteReport from "src/assets/NavWriteReportButon.svg";
 import ReportModal from "./reportModal";
 import useReport from "src/hooks/report/useReport";
 import ChatBot from "src/components/chat";
+import TabBar from "src/components/common/tabBar";
 
 const Report = () => {
   const { ...report } = useReport();
@@ -13,11 +14,7 @@ const Report = () => {
     <S.Container>
       <Header />
       <S.Main>
-        <S.Navbar $isclicked="first">
-          <span>AI 정책 분석</span>
-          <span>국민청원</span>
-          <span>안심신고</span>
-        </S.Navbar>
+        <TabBar />
         <S.ReportMainWrap>
           <S.PageDescriptionWrap>
             <S.PageTitle>익명 부패 신고</S.PageTitle>

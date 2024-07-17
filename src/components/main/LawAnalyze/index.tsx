@@ -1,41 +1,35 @@
-import Header from '../common/header';
-import * as S from './style';
-import UploadOn from 'src/assets/uploadOn.svg';
-import UploadOff from 'src/assets/uploadOff.svg';
-import { useEffect, useState } from 'react';
-import useAnalyze from 'src/hooks/lawAnalyze/useLawAnalyze';
+import Header from "../../common/header";
+import * as S from "./style";
+import UploadOn from "src/assets/uploadOn.svg";
+import UploadOff from "src/assets/uploadOff.svg";
+import { useEffect, useState } from "react";
+import useAnalyze from "src/hooks/lawAnalyze/useLawAnalyze";
+import TabBar from "../../common/tabBar";
 
 const LawAnalyze = () => {
-
   const [uploadEnable, setUploadEnable] = useState(false);
 
-
-  const {...analyze} = useAnalyze();
+  const { ...analyze } = useAnalyze();
 
   const handleSubmit = () => {
-    if(uploadEnable) {
+    if (uploadEnable) {
       analyze.onSubmit();
     }
-  }
+  };
 
-  useEffect(()=>{
-    if(analyze.questionData && analyze.questionData.length > 0) {
+  useEffect(() => {
+    if (analyze.questionData && analyze.questionData.length > 0) {
       setUploadEnable(true);
-    }else{
+    } else {
       setUploadEnable(false);
     }
-  },[analyze.questionData]);
-
+  }, [analyze.questionData]);
 
   return (
     <S.Container>
       <Header />
       <S.View>
-        <S.TabBarWrap>
-          <S.Tab style={{ background: "#6CF3C3" }}>Ai 정책 분석</S.Tab>
-          <S.Tab>국민청원</S.Tab>
-          <S.Tab>안심신고</S.Tab>
-        </S.TabBarWrap>
+        <TabBar />
         <S.PageWordWrap>
           <S.PageTitle>Ai 정책 시뮬레이션</S.PageTitle>
           <S.PageDescription>
@@ -51,15 +45,16 @@ const LawAnalyze = () => {
               placeholder="어떤 것이 궁금한가요?"
               onChange={analyze.handleUploadData}
             />
-            <S.UploadButton src={uploadEnable ? UploadOn : UploadOff} onClick={handleSubmit}/>
+            <S.UploadButton
+              src={uploadEnable ? UploadOn : UploadOff}
+              onClick={handleSubmit}
+            />
           </S.QuestionInputWrap>
-          <S.AnserWrap>
-            {analyze.response}
-          </S.AnserWrap>
+          <S.AnserWrap>{analyze.response}</S.AnserWrap>
         </S.DetailWrap>
       </S.View>
     </S.Container>
   );
-}
+};
 
-export default LawAnalyze
+export default LawAnalyze;
