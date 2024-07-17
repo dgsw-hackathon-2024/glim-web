@@ -10,11 +10,10 @@ const ChatBot = () => {
   return (
     <S.Container>
       <S.Main>
-        <S.Time>8:12 PM</S.Time>
         <S.ChatWrap>
           <S.ChatBot src={ChatBoImg} />
-          <S.ChatMessage>안녕하세요, 무엇을 도와드릴까요?</S.ChatMessage>
-          <S.ChatMessage style={{ width: "73%", height: "50%" }}>
+          <S.ChatMessage style={{ padding: "10px" }}>안녕하세요, 무엇을 도와드릴까요?</S.ChatMessage>
+          <S.ChatMessage style={{ width: "73%", height: "50%", padding: "10px" }}>
             변호사 대신 Ai 챗봇 럭스(Lux)에게
             <br /> 법률 관련 질문을 해보세요!
             <br /> --- <br />
@@ -24,14 +23,16 @@ const ChatBot = () => {
             2. 소송 전 고려할 합의나 조정 절차가 있나요? <br />
             3. 소송 예상 비용은 얼마인가요?
           </S.ChatMessage>
-          {chat.isSuccess === true ? (
+          {chat.chattingList.map((item, idx) => (
             <>
-              <S.UserMessage>{chat.sendedChat}</S.UserMessage>
-              <S.ChatMessage>{chat.aiChat}</S.ChatMessage>
+              <S.UserMessage>
+                <div style={{ padding: "20px" }}>{item.user}</div>
+              </S.UserMessage>
+              <S.ChatMessage>
+                <div style={{ padding: "20px" }}>{item.ai}</div>
+              </S.ChatMessage>
             </>
-          ) : (
-            <></>
-          )}
+          ))}
         </S.ChatWrap>
         <S.SendWrap>
           <S.MessageInput value={chat.chat} onChange={chat.handleUserChat} />

@@ -57,7 +57,7 @@ export const ChatBotButton = styled.img`
 
 export const ChatWrap = styled.div`
   width: 100%;
-  height: 60%;
+  height: max-content;
 
   display: flex;
   flex-direction: column;
@@ -70,6 +70,8 @@ export const ChatWrap = styled.div`
   padding-bottom: 5%;
 
   background: transparent;
+
+  overflow-y: scroll;
 `;
 
 export const ChatMessage = styled.div`
@@ -105,7 +107,9 @@ export const UserMessage = styled.div`
 
   line-height: 130%;
 
-  color: #fff;
+  div {
+    color: #fff;
+  }
 `;
 
 export const ChatBot = styled.img`
@@ -146,5 +150,12 @@ export const MessageInput = styled.input`
 
   border-radius: 13px;
 
+  padding-left: 2%;
+
   outline: none;
+
+  color: #fff;
+  font-family: "Pretendard";
+  font-size: 15px;
+  font-weight: 500;
 `;

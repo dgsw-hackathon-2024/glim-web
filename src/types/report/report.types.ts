@@ -14,3 +14,8 @@ export interface ReportListData {
 export interface ReportListResponse extends BaseResponse {
   data: ReportListData[];
 }
+
+export interface ChatData {
+  user: string;
+  ai: string;
+}

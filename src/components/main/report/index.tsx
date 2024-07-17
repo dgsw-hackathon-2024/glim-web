@@ -42,7 +42,7 @@ const Report = () => {
         <S.ChatBotButton src={ChatBotButton} onClick={report.handleChatbotClick} />
       </S.Main>
       {report.isClicked && <ReportModal />}
-      {report.chatbotClick && <ChatBot />}
+      {report.chatbotClick === true ? <ChatBot /> : <></>}
     </S.Container>
   );
 };
