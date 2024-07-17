@@ -2,7 +2,7 @@ import { AxiosError } from "axios";
 import Token from "../token/token";
 import dearAxios from "./customAxios";
 import { REQUEST_TOKEN_KEY, ACCESS_TOKEN_KEY, REFRESH_TOKEN_KEY } from "../../constants/token/token.constants";
-import AuthRepositoryImpl from "@src/repositories/auth/authRepositoryImpl";
+import AuthRepositoryImpl from "src/repositories/auth/authRepositoryImpl";
 
 let isRefreshing = false;
 let refreshSubscribers: ((accessToken: string) => void)[] = [];
