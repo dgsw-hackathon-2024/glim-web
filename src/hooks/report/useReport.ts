@@ -1,6 +1,6 @@
 import { UploadReportData } from "src/types/report/report.types";
 import React, { useCallback, useRef, useState } from "react";
-import { postReportMutation, useGetReportDetailQuery, useGetReportQuery } from "src/queries/main/report/report.query";
+import { PostReportMutation, GetReportDetailQuery, GetReportQuery } from "src/queries/main/report/report.query";
 import lawBotSwal from "src/libs/swal/customSwal";
 
 const useReport = () => {
@@ -26,7 +26,7 @@ const useReport = () => {
     setPostClick((prev) => !prev);
   };
 
-  const postReport = postReportMutation();
+  const postReport = PostReportMutation();
 
   const onSubmit = () => {
     postReport.mutate(
@@ -46,14 +46,14 @@ const useReport = () => {
   };
 
   const getReportList = () => {
-    const [{ data: reportList }] = useGetReportQuery();
+    const [{ data: reportList }] = GetReportQuery();
     if (reportList !== undefined && reportList !== undefined && reportList.data.length > 0) {
       return reportList;
     }
   };
 
   const getReportDetail = (id: number) => {
-    const [{ data: reportDetail }] = useGetReportDetailQuery(id);
+    const [{ data: reportDetail }] = GetReportDetailQuery(id);
 
     if (reportDetail !== undefined && reportDetail !== undefined) {
       return reportDetail;
