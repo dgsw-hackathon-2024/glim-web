@@ -20,8 +20,6 @@ const LawAnalyze = () => {
     }
   };
 
-  const chatBotClick = chatbotStore((state) => state.chatBotClick);
-
   useEffect(() => {
     if (analyze.questionData && analyze.questionData.length > 0) {
       setUploadEnable(true);

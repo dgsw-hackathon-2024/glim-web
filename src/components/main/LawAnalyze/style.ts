@@ -23,8 +23,6 @@ export const View = styled.div`
   align-items: center;
 `;
 
-
-
 export const PageWordWrap = styled.div`
   width: 90%;
   background-color: transparent;
@@ -73,31 +71,31 @@ export const QuestionInputWrap = styled.div`
   width: 100%;
   height: 65px;
   border: 1px solid #a2a7ab;
-  border-radius:15px;
-  box-sizing:border-box;
-  background-color:transparent;
-  display:flex;
-  align-items:center;
+  border-radius: 15px;
+  box-sizing: border-box;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
   padding: 10px;
 `;
 export const QuestionInput = styled.input`
-  height:100%;
-  width:90%;
-  font-size:16px;
-  color:white;
-  border:none;
-  outline:none;
-  background-color:transparent;
-`
+  height: 100%;
+  width: 90%;
+  font-size: 16px;
+  color: white;
+  border: none;
+  outline: none;
+  background-color: transparent;
+`;
 export const UploadButton = styled.img`
-  height:90%;
-  background-color:transparent;
-`
+  height: 90%;
+  background-color: transparent;
+`;
 
 export const AnserWrap = styled.div`
   width: 100%;
   min-height: 400px;
-  margin-top:30px;
+  margin-top: 30px;
   background-color: transparent;
   overflow-y: scroll;
   -ms-overflow-style: none;
@@ -105,7 +103,7 @@ export const AnserWrap = styled.div`
   &::-webkit-scrollbar {
     display: none;
   }
-  padding:10px;
-  box-sizing:border-box;
-  color:white;
+  padding: 10px;
+  box-sizing: border-box;
+  color: white;
 `;

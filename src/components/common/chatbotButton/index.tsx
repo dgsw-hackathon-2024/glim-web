@@ -8,7 +8,7 @@ const ChatBotButton = () => {
   return (
     <>
       <S.ChatBotButton src={ChatBotButtonImg} onClick={handleChatbotClick} />
-      {chatbotClick && <ChatBot />}   
+      {chatbotClick && <ChatBot />}
     </>
   );
 };
