@@ -4,8 +4,10 @@ import * as S from "./style";
 import ChatBotButton from "src/assets/chatbotButon.svg";
 import NavWriteReport from "src/assets/NavWriteReportButon.svg";
 import ReportModal from "./reportModal";
+import useReport from "src/hooks/report/useReport";
 
 const Report = () => {
+  const { ...report } = useReport();
   return (
     <S.Container>
       <Header />
@@ -35,10 +37,10 @@ const Report = () => {
             </S.Reports>
           </S.ReportWrap>
         </S.ReportMainWrap>
-        <S.WriteReportButton src={NavWriteReport} />
+        <S.WriteReportButton src={NavWriteReport} onClick={report.handleIsClicked} />
         <S.ChatBotButton src={ChatBotButton} />
       </S.Main>
-      <ReportModal />
+      {report.isClicked && <ReportModal />}
     </S.Container>
   );
 };

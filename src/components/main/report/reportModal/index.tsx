@@ -8,7 +8,7 @@ const ReportModal = () => {
   return (
     <S.Container>
       <S.WriteWrap>
-        <S.PageTitle>신고&nbsp;#1</S.PageTitle>
+        <S.PageTitle>신고 작성</S.PageTitle>
         <S.TitleInput
           placeholder="제목을 입력해주세요."
           name="title"

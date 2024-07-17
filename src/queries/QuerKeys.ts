@@ -1,7 +1,6 @@
-import React from 'react'
-
-const QuerKeys = () => {
-
-}
-
-export default QuerKeys
+export const QUERY_KEYS = Object.freeze({
+  report: {
+    postReport: "/report",
+    getReport: "/report/list",
+  },
+});
