@@ -5,6 +5,7 @@ import useReport from "src/hooks/report/useReport";
 
 const ReportModal = () => {
   const { ...report } = useReport();
+
   return (
     <S.Container>
       <S.WriteWrap>

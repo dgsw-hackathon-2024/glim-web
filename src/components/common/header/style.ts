@@ -5,8 +5,10 @@ export const HeaderWrap = styled.div`
   height: 8%;
 
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+  box-sizing:border-box;
+  padding: 0 30px;
 
   h1 {
     color: linear-gradient(0.25turn #c1fdff 0 58%, #56c19b 58%, #3f8d71 100%);

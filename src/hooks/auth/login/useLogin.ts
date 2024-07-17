@@ -3,7 +3,10 @@ import { LoginData } from "src/types/auth/auth.types";
 import React, { useCallback, useState } from "react";
 import lawBotSwal from "src/libs/swal/customSwal";
 import token from "src/libs/token/token";
-import { ACCESS_TOKEN_KEY, REFRESH_TOKEN_KEY } from "src/constants/token/token.constants";
+import {
+  ACCESS_TOKEN_KEY,
+  REFRESH_TOKEN_KEY,
+} from "src/constants/token/token.constants";
 import { useNavigate } from "react-router-dom";
 import axios, { AxiosError } from "axios";
 import CONFIG from "src/config/config.json";
@@ -20,7 +23,7 @@ const useLogin = () => {
       const { name, value } = e.target;
       setLoginData((prev) => ({ ...prev, [name]: value }));
     },
-    [setLoginData],
+    [setLoginData]
   );
 
   const onSubmit = async () => {
