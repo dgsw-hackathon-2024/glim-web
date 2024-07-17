@@ -3,6 +3,7 @@ import React from "react";
 import * as S from "./style";
 import ChatBotButton from "src/assets/chatbotButon.svg";
 import NavWriteReport from "src/assets/NavWriteReportButon.svg";
+import ReportModal from "./reportModal";
 
 const Report = () => {
   return (
@@ -37,6 +38,7 @@ const Report = () => {
         <S.WriteReportButton src={NavWriteReport} />
         <S.ChatBotButton src={ChatBotButton} />
       </S.Main>
+      <ReportModal />
     </S.Container>
   );
 };
