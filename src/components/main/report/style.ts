@@ -13,20 +13,6 @@ export const Container = styled.div`
   margin: 0 auto;
 `;
 
-export const Main = styled.div`
-  width: 100%;
-  height: 92%;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  gap: 5%;
-  justify-content: space-evenly;
-  border-radius: 30px 30px 0px 0px;
-
-  background: #3e404a;
-`;
 
 export const Navbar = styled.div<{ $isclicked: string }>`
   width: 90%;
@@ -50,8 +36,6 @@ export const Navbar = styled.div<{ $isclicked: string }>`
 
     font-family: "Pretendard";
     font-weight: 600;
-    font-size: 1rem;
-    padding-top: 1%;
     color: #fff;
     background: transparent;
 
@@ -61,51 +45,49 @@ export const Navbar = styled.div<{ $isclicked: string }>`
   }
 `;
 
-export const ReportMainWrap = styled.div`
+export const View = styled.div`
   width: 100%;
-  height: 85%;
-
-  background: transparent;
-
+  height: 92%;
+  align-self: flex-end;
+  background-color: #3e404a;
+  border-radius: 30px 30px 0 0;
   display: flex;
   flex-direction: column;
-
   align-items: center;
-  justify-content: space-evenly;
+  justify-content:flex-start;
 `;
 
-export const PageDescriptionWrap = styled.div`
-  width: 60%;
-  height: 10%;
-
-  display: flex;
-  flex-direction: column;
-  align-self: flex-start;
-  padding-left: 5%;
-
-  background: transparent;
-
-  gap: 8px;
+export const PageWordWrap = styled.div`
+  width: 90%;
+  background-color: transparent;
+  margin: 80px 0 0 0;
 `;
 
 export const PageTitle = styled.h1`
-  font-family: "Pretendard";
-  font-weight: 500;
-  font-size: 1.4rem;
-  color: #fff;
-
-  background: transparent;
+  font-family: "Pretendard", sans-serif;
+  font-size: 25px;
+  font-weight: bolder;
+  color: white;
+  background-color: transparent;
+  margin: 10px 0;
+`;
+export const PageDescription = styled.p`
+  font-family: "Pretendard", sans-serif;
+  font-size: 18px;
+  font-weight: 200;
+  color: #a2a7ab;
+  background-color: transparent;
+  line-height: 1.3;
 `;
 
-export const PageSubTitle = styled.h1`
-  font-family: "Pretendard";
-  font-weight: 400;
-  font-size: 1.1rem;
-  color: #a2a7ab;
-
-  background: transparent;
-
-  line-height: 120%;
+export const DetailTitle = styled.div`
+  width: 90%;
+  font-size: 15px;
+  margin-top: 50px;
+  color: white;
+  font-family: "Pretendard", sans-serif;
+  background-color: transparent;
+  margin-bottom: 10px;
 `;
 
 export const ReportWrap = styled.div`
@@ -119,14 +101,6 @@ export const ReportWrap = styled.div`
   gap: 15px;
   align-items: flex-start;
 
-  span {
-    font-family: "Pretendard";
-    color: #fff;
-    font-weight: 600;
-    font-size: 1.1rem;
-
-    background: transparent;
-  }
 `;
 
 export const Reports = styled.div`
@@ -135,12 +109,17 @@ export const Reports = styled.div`
 
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: space-between;
   column-gap: 35px;
   overflow: scroll;
 
   background: transparent;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 export const Report = styled.div`
@@ -156,13 +135,15 @@ export const Report = styled.div`
   gap: 15px;
 
   padding-left: 2%;
-  padding-top: 2%;
+  padding-top: 4%;
+
+  margin-top: 15px;
 
   h1 {
     font-family: "Pretendard";
     color: #1c1d28;
     font-weight: 800;
-    font-size: 18px;
+    font-size: 25px;
   }
   span {
     font-family: "Pretendard";
@@ -280,4 +261,94 @@ export const CommitteeInfo = styled.p`
   font-weight: 400;
   font-family: "Pretendard", sans-serif;
   background-color: transparent;
+`;
+
+export const ModalContainer = styled.div`
+  height: 100vh;
+  aspect-ratio: 1/1.9;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: rgba(12, 12, 12, 0.75);
+
+  margin: 0 auto;
+  z-index: 1;
+`;
+
+export const ModalWriteWrap = styled.div`
+  position: absolute;
+
+  top: 30%;
+  left: 10%;
+
+  width: 80%;
+  height: 43%;
+
+  background: #d9d9d9;
+
+  border-radius: 15px;
+
+  img {
+    position: absolute;
+    top: 83%;
+    left: 66%;
+
+    border-radius: 20px;
+
+    cursor: pointer;
+  }
+`;
+
+export const ModalPageTitle = styled.h1`
+  font-family: "Pretendard";
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #1c1d28;
+
+  background: transparent;
+  position: absolute;
+  top: 5%;
+  left: 5%;
+`;
+
+export const ModalTitleInput = styled.input`
+  outline: none;
+  font-family: "Pretendard";
+  font-weight: 800;
+  font-size: 1.3rem;
+
+  color: #1c1d28;
+  background-color: transparent;
+
+  position: absolute;
+  top: 15%;
+  left: 5%;
+
+  &::placeholder {
+    color: #a2a7ab;
+  }
+`;
+
+export const ModalContentInput = styled.textarea`
+  resize: none;
+  width: 90%;
+  height: 50%;
+
+  outline: none;
+
+  background-color: transparent;
+
+  position: absolute;
+  top: 23%;
+  left: 5%;
+
+  color: #1c1d28;
+
+  font-family: "Pretendard";
+  font-weight: 800;
+  font-size: 1.3rem;
+
+  &::placeholder {
+    color: #a2a7ab;
+  }
 `;

@@ -52,6 +52,7 @@ const useReport = () => {
       .then(() => {
         lawBotSwal.successToast("신고 작성 성공");
         setIsClicked(false);
+        getReportList();
       });
   };
 
@@ -68,10 +69,9 @@ const useReport = () => {
       setReportList(res.data.data);
       setReportNum(res.data.data.length);
       setId(res.data.data.id);
-      console.log(res.data.data.length);
-      console.log(res.data.data);
     });
   };
+
 
   const closeView = (e: any) => {
     if (e.target.className.includes("shadow")) {
@@ -105,6 +105,7 @@ const useReport = () => {
     onSubmit,
     getReportList,
     getReportDetail,
+    setIsClicked
   };
 };
 

@@ -31,7 +31,7 @@ export const PageWordWrap = styled.div`
 `;
 
 export const PageTitle = styled.h1`
-  font-family: "Pretendard-Regular", sans-serif;
+  font-family: "Pretendard", sans-serif;
   font-size: 25px;
   font-weight: bolder;
   color: white;
@@ -39,7 +39,7 @@ export const PageTitle = styled.h1`
   margin: 10px 0;
 `;
 export const PageDescription = styled.p`
-  font-family: "Pretendard-Regular", sans-serif;
+  font-family: "Pretendard", sans-serif;
   font-size: 18px;
   font-weight: 200;
   color: #a2a7ab;
@@ -63,7 +63,7 @@ export const DetailTitle = styled.div`
   font-size: 15px;
   margin-top: 50px;
   color: white;
-  font-family: "Pretendard-Regular", sans-serif;
+  font-family: "Pretendard", sans-serif;
   background-color: transparent;
   margin-bottom: 10px;
 `;
@@ -84,13 +84,13 @@ export const CommitteeBox = styled.div`
 
 export const CommitteeTitle = styled.p`
   font-weight: bolder;
-  font-family: "Pretendard-Regular", sans-serif;
+  font-family: "Pretendard", sans-serif;
   background-color: transparent;
 `;
 
 export const CommitteeContent = styled.p`
   width: 90%;
-  font-family: "Pretendard-Regular", sans-serif;
+  font-family: "Pretendard", sans-serif;
   background-color: transparent;
   font-weight: 100;
 `;
@@ -100,16 +100,18 @@ export const CommitteeInfoWrap = styled.div`
   display: flex;
   justify-content: space-between;
   background-color: transparent;
-  height: 20px;
+  height: 30px;
 `;
 export const CommitteeInfo = styled.p`
   font-weight: 400;
-  font-family: "Pretendard-Regular", sans-serif;
+  font-family: "Pretendard", sans-serif;
   background-color: transparent;
+  display:flex;
+  align-items:center;
 `;
 export const CommitteeLikeWrap = styled.div`
   font-weight: 400;
-  font-family: "Pretendard-Regular", sans-serif;
+  font-family: "Pretendard", sans-serif;
   display: flex;
   align-items: center;
   background-color: transparent;
@@ -184,7 +186,7 @@ export const CommitteeWriteTitle = styled.input`
   width: 100%;
   font-size: 20px;
   font-weight: bolder;
-  font-family: "Pretendard-Regular", sans-serif;
+  font-family: "Pretendard", sans-serif;
   background-color: transparent;
   border: none;
   outline: none;
@@ -194,7 +196,7 @@ export const CommitteeWriteContent = styled.textarea`
   width: 100%;
   font-size: 18px;
   font-weight: 400;
-  font-family: "Pretendard-Regular", sans-serif;
+  font-family: "Pretendard", sans-serif;
   height: 250px;
   resize: none;
   background-color: transparent;

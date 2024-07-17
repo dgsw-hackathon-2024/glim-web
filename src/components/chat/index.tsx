@@ -47,7 +47,6 @@ const ChatBot = () => {
             onChange={chat.handleUserChat}
             placeholder="질문을 입력해주세요!"
           />
-          <img src={SendLoading} />
           {chat.isLoading ? (
             <img src={SendLoading}/>
           ) : (

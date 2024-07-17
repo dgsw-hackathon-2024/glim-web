@@ -16,7 +16,7 @@ interface CommunityData {
   title: string;
   contents: string;
   createdAt: string;
-  likeCount: number;
+  likes: number;
 }
 
 const Committee = () => {
@@ -25,7 +25,7 @@ const Committee = () => {
     title: "",
     contents: "",
     createdAt: "",
-    likeCount: 0,
+    likes: 0,
   });
   const [petitionList, setPetitionList] = useState<CommunityData[]>([]);
 
@@ -40,7 +40,7 @@ const Committee = () => {
         title: "",
         contents: "",
         createdAt: "",
-        likeCount: 0,
+        likes: 0,
       });
     }
   };
@@ -57,9 +57,16 @@ const Committee = () => {
     getPetitionList();
   }, []);
 
+  useEffect(()=>{
+    petitionList.forEach((item)=>{
+      console.log(item.likes);
+    });
+  },[petitionList]);
+
   const chatBotClick = chatbotStore((state) => state.chatBotClick);
 
   const navigate = useNavigate();
+
 
   return (
     <S.Container>
@@ -75,11 +82,11 @@ const Committee = () => {
           </S.PageDescription>
         </S.PageWordWrap>
         <S.DetailTitle>
-          진행중인 청원 총 <span style={{ color: "#6CF3C3", background: "transparent" }}>2건</span>
+          진행중인 청원 총 <span style={{ color: "#6CF3C3", background: "transparent" }}>{petitionList.length}건</span>
         </S.DetailTitle>
         <S.DetailWrap>
           {petitionList !== undefined &&
-            petitionList.map((item, idx) => (
+            petitionList.map((item) => (
               <S.CommitteeBox
                 key={item.id}
                 onClick={() => {
@@ -88,19 +95,19 @@ const Committee = () => {
                     title: item.title,
                     contents: item.contents,
                     createdAt: item.createdAt,
-                    likeCount: item.likeCount,
+                    likes: item.likes,
                   });
                 }}
               >
-                <S.CommitteeTitle style={{ fontSize: "16px" }}>{item.title}</S.CommitteeTitle>
-                <S.CommitteeContent style={{ fontSize: "13px" }}>
-                  {item.contents.substring(0, 50) + "..."}
+                <S.CommitteeTitle style={{ fontSize: "20px" }}>{item.title}</S.CommitteeTitle>
+                <S.CommitteeContent style={{ fontSize: "17px" }}>
+                  {item.contents.length > 51 ? item.contents.substring(0, 50) + "..." : item.contents}
                 </S.CommitteeContent>
                 <S.CommitteeInfoWrap>
-                  <S.CommitteeInfo style={{ fontSize: "12px" }}>{item.createdAt.split("T")[0]}</S.CommitteeInfo>
+                  <S.CommitteeInfo style={{ fontSize: "16px" }}>{item.createdAt.split("T")[0]}</S.CommitteeInfo>
                   <S.CommitteeLikeWrap>
                     <img src={Thumbup} />
-                    <S.CommitteeInfo style={{ fontSize: "12px" }}>{item.likeCount}</S.CommitteeInfo>
+                    <S.CommitteeInfo style={{ fontSize: "16px" }}>{item.likes}</S.CommitteeInfo>
                   </S.CommitteeLikeWrap>
                 </S.CommitteeInfoWrap>
               </S.CommitteeBox>
@@ -110,13 +117,13 @@ const Committee = () => {
       {currentView.id !== 0 ? (
         <S.CommitteeViewShadow className="shadow" onClick={closeView}>
           <S.CommitteeViewBox>
-            <S.CommitteeTitle style={{ fontSize: "20px" }}>{currentView.title}</S.CommitteeTitle>
-            <S.CommitteeContent style={{ fontSize: "17px" }}>{currentView.contents}</S.CommitteeContent>
+            <S.CommitteeTitle style={{ fontSize: "24px" }}>{currentView.title}</S.CommitteeTitle>
+            <S.CommitteeContent style={{ fontSize: "21px" }}>{currentView.contents}</S.CommitteeContent>
             <S.CommitteeInfoWrap>
-              <S.CommitteeInfo style={{ fontSize: "14px" }}>{currentView.createdAt.split("T")[0]}</S.CommitteeInfo>
+              <S.CommitteeInfo style={{ fontSize: "17px" }}>{currentView.createdAt.split("T")[0]}</S.CommitteeInfo>
               <S.CommitteeLikeWrap>
                 <img src={Thumbup} />
-                <S.CommitteeInfo style={{ fontSize: "14px" }}>{currentView.likeCount}</S.CommitteeInfo>
+                <S.CommitteeInfo style={{ fontSize: "17px" }}>{currentView.likes}</S.CommitteeInfo>
               </S.CommitteeLikeWrap>
             </S.CommitteeInfoWrap>
           </S.CommitteeViewBox>
