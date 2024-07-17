@@ -10,6 +10,7 @@ import TabBar from "src/components/common/tabBar";
 
 const Report = () => {
   const { ...report } = useReport();
+
   return (
     <S.Container>
       <Header />
