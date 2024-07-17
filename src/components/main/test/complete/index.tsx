@@ -9,11 +9,18 @@ const CompleteTest = () => {
   const navigate = useNavigate();
   const score = testStore((state) => state.score);
   const description = [
-    <p>
+    <div>
+      관심이 부족한 당신! <br />
       <span style={{ color: "#6CF3C3" }}>LawBot</span>이 필요한 당신 :(
-    </p>,
-    <p>조금 더 노력하세요!</p>,
-    <p>좋아요 :)</p>,
+    </div>,
+    <div>
+      <span style={{ color: "#6CF3C3" }}>LawBot</span>을 통해 배울 준비가 된 당신! <br />
+      이제 시작해 볼까요?
+    </div>,
+    <div>
+      <span style={{ color: "#6CF3C3" }}>LawBot</span>을 활용할 수 있는 당신! <br />
+      이제 시작해볼까요?
+    </div>,
   ];
   return (
     <S.Container>

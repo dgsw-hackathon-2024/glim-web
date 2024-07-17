@@ -147,16 +147,18 @@ export const Button = styled.button`
 `;
 
 export const CompleteWrap = styled.div`
-  width: 60%;
+  width: 80%;
   height: 50%;
 
   display: flex;
   flex-direction: column;
   align-items: center;
-  align-items: center;
-  justify-content: flex-end;
+  align-self: center;
+  justify-content: center;
 
   gap: 10px;
+
+  margin-top: 30px;
   h1 {
     font-family: "Pretendard";
     font-size: 64px;
@@ -168,10 +170,14 @@ export const CompleteWrap = styled.div`
     }
   }
 
-  p {
+  div {
     font-size: 25px;
     font-weight: 600;
     color: #fff;
     margin-top: 20px;
+
+    text-align: center;
+    width: 100%;
+    line-height: 120%;
   }
 `;
