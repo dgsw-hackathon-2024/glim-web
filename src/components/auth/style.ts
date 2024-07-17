@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 export const Container = styled.div`
@@ -94,6 +94,17 @@ export const Input = styled.input`
   &::placeholder {
     color: #808080;
     font-weight: 200;
+  }
+
+  &:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px #fff inset;
+    -webkit-text-fill-color: #000;
+  }
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
   }
 `;
 export const WarnMsg = styled.div`

@@ -23,7 +23,6 @@ export const View = styled.div`
   align-items: center;
 `;
 
-
 export const PageWordWrap = styled.div`
   width: 90%;
   background-color: transparent;
@@ -56,6 +55,8 @@ export const DetailWrap = styled.div`
     display: none;
   }
   background-color: transparent;
+
+  height: 60%;
 `;
 
 export const DetailTitle = styled.div`
@@ -106,8 +107,8 @@ export const CommitteeInfo = styled.p`
   font-weight: 400;
   font-family: "Pretendard", sans-serif;
   background-color: transparent;
-  display:flex;
-  align-items:center;
+  display: flex;
+  align-items: center;
 `;
 export const CommitteeLikeWrap = styled.div`
   font-weight: 400;
@@ -166,9 +167,9 @@ export const ChatBotButton = styled.img`
 export const UploadButton = styled.img`
   cursor: pointer;
   background: transparent;
-  position:absolute;
-  right:20px;
-  bottom:20px;
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
 `;
 
 export const CommitteeWriteBox = styled.div`

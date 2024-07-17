@@ -72,7 +72,6 @@ const useReport = () => {
     });
   };
 
-
   const closeView = (e: any) => {
     if (e.target.className.includes("shadow")) {
       setReportDetail(null);
@@ -105,7 +104,7 @@ const useReport = () => {
     onSubmit,
     getReportList,
     getReportDetail,
-    setIsClicked
+    setIsClicked,
   };
 };
 

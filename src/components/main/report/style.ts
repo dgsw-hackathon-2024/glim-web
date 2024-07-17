@@ -13,7 +13,6 @@ export const Container = styled.div`
   margin: 0 auto;
 `;
 
-
 export const Navbar = styled.div<{ $isclicked: string }>`
   width: 90%;
   height: 10%;
@@ -54,7 +53,7 @@ export const View = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content:flex-start;
+  justify-content: flex-start;
 `;
 
 export const PageWordWrap = styled.div`
@@ -100,7 +99,6 @@ export const ReportWrap = styled.div`
   flex-direction: column;
   gap: 15px;
   align-items: flex-start;
-
 `;
 
 export const Reports = styled.div`
@@ -345,7 +343,7 @@ export const ModalContentInput = styled.textarea`
   color: #1c1d28;
 
   font-family: "Pretendard";
-  font-weight: 800;
+  font-weight: 600;
   font-size: 1.3rem;
 
   &::placeholder {

@@ -65,14 +65,14 @@ const Report = () => {
       {report.reportDetail && (
         <S.CommitteeViewShadow className="shadow" onClick={report.closeView}>
           <S.CommitteeViewBox>
-            <S.CommitteeTitle style={{ fontSize: "20px", fontWeight: "800" }}>
+            <S.CommitteeTitle style={{ fontWeight: "800", fontSize: "25px" }}>
               신고 #{report.reportDetail?.id}
             </S.CommitteeTitle>
-            <S.CommitteeContent style={{ fontSize: "17px", fontWeight: "700" }}>
+            <S.CommitteeContent style={{ fontWeight: "700", fontSize: "22px" }}>
               {report.reportDetail?.title}
             </S.CommitteeContent>
             <S.CommitteeInfoWrap>
-              <S.CommitteeInfo style={{ fontSize: "14px", fontWeight: "500" }}>
+              <S.CommitteeInfo style={{ fontWeight: "600", fontSize: "20px" }}>
                 {report.reportDetail?.contents}
               </S.CommitteeInfo>
             </S.CommitteeInfoWrap>

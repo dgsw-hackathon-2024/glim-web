@@ -106,4 +106,27 @@ export const AnserWrap = styled.div`
   padding: 10px;
   box-sizing: border-box;
   color: white;
+
+  li,
+  h4,
+  p,
+  strong {
+    color: white;
+    margin-bottom: 3%;
+  }
+
+  h4 {
+    font-weight: 600;
+    font-size: 23px;
+  }
+
+  p {
+    font-weight: 500;
+    font-size: 21px;
+  }
+
+  li {
+    font-weight: 400;
+    font-size: 19px;
+  }
 `;

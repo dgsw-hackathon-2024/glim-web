@@ -16,15 +16,15 @@ const ChatBot = () => {
           <S.ChatWrap>
             <S.ChatBot src={ChatBoImg} />
             {chat.isSuccess === true &&
-              chat.chattingList.map((item) => (
-                <>
-                  <S.ChatMessage>
-                    <div style={{ padding: "20px", color: "white" }}>{item.ai}</div>
-                  </S.ChatMessage>
+              chat.chattingList.reverse().map((item) => (
+                <div style={{ display: "flex", flexDirection: "column" }}>
                   <S.UserMessage>
                     <div style={{ padding: "20px" }}>{item.user}</div>
                   </S.UserMessage>
-                </>
+                  <S.ChatMessage>
+                    <div style={{ padding: "20px", color: "white" }}>{item.ai}</div>
+                  </S.ChatMessage>
+                </div>
               ))}
             <S.ChatMessage style={{ width: "70%", padding: "10px", boxSizing: "border-box" }}>
               변호사 대신 Ai 챗봇 럭스(Lux)에게
@@ -49,7 +49,6 @@ const ChatBot = () => {
             )}
           </S.SendWrap>
         </S.Main>
-        {/* <S.ChatBotButton src={ChatBotButton} onClick={handleChatbotClick} /> */}
       </S.Container>
     </>
   );
