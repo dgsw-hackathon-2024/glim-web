@@ -26,7 +26,7 @@ export const pallete: DefaultTheme = {
     dark800: "#1C1D28",
     dark900: "#101119",
 
-    white: "",
+    white: "#fff",
     error: "",
   },
 };
