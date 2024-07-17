@@ -13,10 +13,10 @@ const MainPage = () => {
         <S.PageTitle>현재 정부 정책 인지도 테스트</S.PageTitle>
         <S.PageTitle>나는 얼마나 알고있을까?</S.PageTitle>
       </div>
-      <S.Button>테스트 하러 가기</S.Button>
+      <S.Button onClick={() => navigate("/test/1")}>테스트 하러 가기</S.Button>
       <S.PageButtonWrap $path={pathname === "/test" ? "true" : "false"}>
         <span></span>
-        <span onClick={() => navigate("/service")}></span>
+        <span onClick={() => navigate("/choice/service")}></span>
       </S.PageButtonWrap>
     </S.Container>
   );

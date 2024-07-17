@@ -5,7 +5,7 @@ export const Container = styled.div`
   height: 100vh;
   aspect-ratio: 1/1.9;
   margin: 0 auto;
-  box-shadow: 0px 0px 50px 30px rgba(255, 255, 255, 0.2);
+  box-shadow: 0px 0px 50px 30px rgba(0, 0, 0, 0.2);
   background-color: #1c1d28;
   position: relative;
   display: flex;
@@ -61,23 +61,15 @@ export const PageButtonWrap = styled.div<{ $path: string }>`
 
   span {
     ${({ $path }) =>
-      $path === "true"
-        ? css`
-            &:first {
-              background: #d7d7d7;
-            }
-            &:nth-child(2) {
-              background-color: #6c6f72;
-            }
-          `
-        : css`
-            &:first {
-              background: #d7d7d7;
-            }
-            &:nth-child(2) {
-              background: "#";
-            }
-          `}
+      $path === "false" &&
+      css`
+        &:nth-child(n + 1) {
+          background: #d7d7d7;
+        }
+        &:nth-child(n + 2) {
+          background-color: #6c6f72;
+        }
+      `}
     width: 13px;
     height: 13px;
     border-radius: 100%;

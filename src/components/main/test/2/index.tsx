@@ -17,8 +17,13 @@ const Test2 = () => {
           모두 알고있다.
         </S.PageTitle>
         <S.ButtonWrap>
-          <S.Button>예</S.Button>
-          <S.Button style={{ color: "#fff", background: "#3E404A" }}>아니오</S.Button>
+          <S.Button onClick={() => navigate("/test/3")}>예</S.Button>
+          <S.Button
+            style={{ color: "#fff", background: "#3E404A" }}
+            onClick={() => navigate("/test/3")}
+          >
+            아니오
+          </S.Button>
         </S.ButtonWrap>
       </S.Main>
     </S.Container>
