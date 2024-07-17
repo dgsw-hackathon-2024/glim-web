@@ -7,7 +7,9 @@ import Login from "../auth/login";
 import { QueryClient, QueryClientProvider } from "react-query";
 import LawTest from "src/components/main/select/test/index";
 import Service from "../main/select/service";
-import Test from "../main/test";
+import Test1 from "../main/test/1";
+import Test2 from "../main/test/2";
+import Test3 from "../main/test/3";
 
 const Router = () => {
   const queryClient = new QueryClient({
@@ -30,7 +32,9 @@ const Router = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/choice/test" element={<LawTest />} />
           <Route path="/choice/service" element={<Service />} />
-          <Route path="/test" element={<Test />} />
+          <Route path="/test/1" element={<Test1 />} />
+          <Route path="/test/2" element={<Test2 />} />
+          <Route path="/test/3" element={<Test3 />} />
         </Routes>
       </QueryClientProvider>
     </BrowserRouter>

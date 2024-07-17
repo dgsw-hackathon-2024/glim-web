@@ -5,7 +5,7 @@ export const Container = styled.div`
   height: 100vh;
   aspect-ratio: 1/1.9;
   margin: 0 auto;
-  box-shadow: 0px 0px 50px 30px rgba(255, 255, 255, 0.2);
+  box-shadow: 0px 0px 50px 30px rgba(0, 0, 0, 0.2);
   background-color: #1c1d28;
 
   display: flex;
