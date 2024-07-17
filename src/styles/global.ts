@@ -20,6 +20,9 @@ const GlobalStyle = createGlobalStyle`
     a {
       text-decoration: none;
     }
+    body {
+      overflow:hidden;
+    }
 `;
 
 export default GlobalStyle;
