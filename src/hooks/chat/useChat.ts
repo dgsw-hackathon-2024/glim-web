@@ -10,12 +10,7 @@ const useChat = () => {
   const [aiChat, setAiChat] = useState<string[]>([]);
   const [isSuccess, setIsSuccess] = useState<boolean>(false);
   const chatMutation = ChatBotMutation();
-  const [chattingList, setChattingList] = useState<ChatData[]>([
-    {
-      user: "",
-      ai: "",
-    },
-  ]);
+  const [chattingList, setChattingList] = useState<ChatData[]>([]);
 
   const handleUserChat = (e: React.ChangeEvent<HTMLInputElement>) => {
     setChat(e.target.value);

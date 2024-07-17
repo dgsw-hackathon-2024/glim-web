@@ -57,20 +57,21 @@ export const ChatBotButton = styled.img`
 
 export const ChatWrap = styled.div`
   width: 100%;
-
+  height: 80%;
+  box-sizing: border-box;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 20px;
-
-  margin-top: 30%;
+  flex-direction: column-reverse;
 
   padding-bottom: 5%;
 
   background: transparent;
 
   overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 export const ChatMessage = styled.div`
@@ -87,6 +88,7 @@ export const ChatMessage = styled.div`
   line-height: 130%;
 
   color: #fff;
+  margin: 10px auto;
 `;
 
 export const UserMessage = styled.div`
@@ -98,10 +100,13 @@ export const UserMessage = styled.div`
   align-items: center;
   justify-content: center;
 
+  margin: 10px auto;
+
   min-height: 10%;
   width: 70%;
 
   line-height: 130%;
+  
 
   div {
     color: #fff;
@@ -110,7 +115,7 @@ export const UserMessage = styled.div`
 
 export const ChatBot = styled.img`
   position: absolute;
-  top: 60%;
+  top: 67%;
   left: 5%;
 
   background: transparent;
@@ -154,4 +159,9 @@ export const MessageInput = styled.input`
   font-family: "Pretendard";
   font-size: 15px;
   font-weight: 500;
+
+  &::placeholder {
+    color: rgb(166, 171, 175);
+    font-weight: 500;
+  }
 `;
