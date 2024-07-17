@@ -160,6 +160,7 @@ export const CommitteeViewBox = styled.div`
   flex-direction: column;
   justify-content: space-around;
   padding: 10px;
+  box-sizing: border-box;
 `;
 
 export const WriteReportButton = styled.img`
@@ -178,4 +179,44 @@ export const ChatBotButton = styled.img`
   position: absolute;
   left: 80%;
   top: 88%;
+`;
+
+export const UploadButton = styled.img`
+  cursor: pointer;
+  background: transparent;
+  position:absolute;
+  right:20px;
+  bottom:20px;
+`;
+
+export const CommitteeWriteBox = styled.div`
+  width: 100%;
+  height: 400px;
+  background: #d9d9d9;
+  border-radius: 30px;
+  margin-top: 70px;
+  padding: 30px;
+  box-sizing: border-box;
+  position: relative;
+`;
+
+export const CommitteeWriteTitle = styled.input`
+  width: 100%;
+  font-size: 20px;
+  font-weight: bolder;
+  font-family: "Pretendard-Regular", sans-serif;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  margin-bottom: 10px;
+`;
+export const CommitteeWriteContent = styled.textarea`
+  width: 100%;
+  font-size: 18px;
+  font-weight: 400;
+  font-family: "Pretendard-Regular", sans-serif;
+  height: 250px;
+  resize: none;
+  background-color: transparent;
+  outline: none;
 `;
