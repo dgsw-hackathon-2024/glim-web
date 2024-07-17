@@ -24,7 +24,10 @@ const useAnalyze = () => {
 
   const onSubmit = async () => {
     setIsLoading(true);
-    await axios.post(`${CONFIG.serverUrl}/ai/simulate`, { questionData }).then((res) => {setResponse(res.data);setIsLoading(false)});
+    await axios.post(`${CONFIG.serverUrl}/ai/simulate`, questionData).then((res) => {
+      setResponse(res.data);
+      setIsLoading(false);
+    });
   };
 
   return {
@@ -32,7 +35,7 @@ const useAnalyze = () => {
     questionData,
     handleUploadData,
     response,
-    isLoading
+    isLoading,
   };
 };
 

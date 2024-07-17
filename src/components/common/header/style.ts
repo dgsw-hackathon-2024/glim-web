@@ -7,7 +7,7 @@ export const HeaderWrap = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-sizing:border-box;
+  box-sizing: border-box;
   padding: 0 30px;
 
   h1 {
@@ -15,5 +15,9 @@ export const HeaderWrap = styled.div`
     font-family: "Pretendard";
     font-weight: 800;
     font-size: 1.4rem;
+  }
+
+  img {
+    cursor: pointer;
   }
 `;

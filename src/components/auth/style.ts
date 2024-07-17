@@ -97,8 +97,7 @@ export const Input = styled.input`
   }
 
   &:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0 30px #fff inset;
-    -webkit-text-fill-color: #000;
+    -webkit-text-fill-color: #6cf3c3;
   }
   &:-webkit-autofill,
   &:-webkit-autofill:hover,
