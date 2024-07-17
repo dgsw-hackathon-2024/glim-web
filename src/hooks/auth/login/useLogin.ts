@@ -5,7 +5,8 @@ import lawBotSwal from "src/libs/swal/customSwal";
 import token from "src/libs/token/token";
 import { ACCESS_TOKEN_KEY, REFRESH_TOKEN_KEY } from "src/constants/token/token.constants";
 import { useNavigate } from "react-router-dom";
-import { AxiosError } from "axios";
+import axios, { AxiosError } from "axios";
+import CONFIG from "src/config/config.json";
 
 const useLogin = () => {
   const navigate = useNavigate();
@@ -22,32 +23,17 @@ const useLogin = () => {
     [setLoginData],
   );
 
-  const loginMutation = useLoginMuatation();
-
-  const onSubmit = () => {
-    loginMutation.mutate(
-      {
+  const onSubmit = async () => {
+    await axios
+      .post(`${CONFIG.serverUrl}/user/signin`, {
         email: loginData.email,
         password: loginData.password,
-      },
-      {
-        onSuccess: (res) => {
-          token.setToken(ACCESS_TOKEN_KEY, res.data.token);
-
-          lawBotSwal.successToast("로그인 성공");
-          navigate("/");
-        },
-        onError: (error) => {
-          if ((error as AxiosError).status === 404) {
-            lawBotSwal.errorToast("유저가 존재하지않습니다.");
-          } else if ((error as AxiosError).status === 401) {
-            lawBotSwal.errorToast("비밀번호를 확인해 주세요.");
-          } else {
-            lawBotSwal.errorToast("알 수 없는 에러가 발생하였습니다.");
-          }
-        },
-      },
-    );
+      })
+      .then((res) => {
+        token.setToken(ACCESS_TOKEN_KEY, res.data.token);
+        lawBotSwal.successToast("로그인 성공");
+        navigate("/choice/test");
+      });
   };
   return {
     loginData,

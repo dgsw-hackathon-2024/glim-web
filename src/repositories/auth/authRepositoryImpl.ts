@@ -5,7 +5,7 @@ import axios from "axios";
 
 class AuthRepositoryImpl implements AuthRepository {
   public async login(loginData: LoginData): Promise<LoginResponse> {
-    const { data } = await axios.post(`${CONFIG.serverUrl}/auth`, loginData);
+    const { data } = await axios.post(`${CONFIG.serverUrl}/user/signin`, loginData);
     return data;
   }
 

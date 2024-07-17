@@ -1,41 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import * as S from "../style";
 import BackBtn from "src/assets/backward.svg";
-import { useEffect, useState } from "react";
-import lawBotSwal from "src/libs/swal/customSwal";
+import useSignupPw from "src/hooks/auth/signup/useSignupPw";
 
 const PasswordSign = () => {
-  const [password, setPassword] = useState("");
-  const [passwordChk, setPasswordChk] = useState("");
-
-  const [passwordValid, setPasswordValid] = useState(false);
-
-  const handlePassword = (e: any) => {
-    setPassword(e.target.value);
-  };
-
-  const handlePasswordChk = (e: any) => {
-    setPasswordChk(e.target.value);
-  };
-
-  useEffect(() => {
-    if (password === passwordChk && password.length > 0) {
-      setPasswordValid(true);
-    } else {
-      setPasswordValid(false);
-    }
-  }, [password, passwordChk]);
-
-  const submit = () => {
-    if (passwordValid) {
-      navigate("/login");
-    } else {
-      lawBotSwal.errorToast("비밀번호를 올바르게 입력해 주세요.");
-    }
-  };
-
   const navigate = useNavigate();
-
+  const { password, passwordChk, passwordValid, handlePassword, handlePasswordChk, submit } = useSignupPw();
   return (
     <S.Container>
       <S.Backward
@@ -60,9 +30,9 @@ const PasswordSign = () => {
               submit();
             }
           }}
-          style={{marginBottom:'20px'}}
+          style={{ marginBottom: "20px" }}
         />
-        
+
         <S.Input
           type="password"
           placeholder="비밀번호 확인"
