@@ -1,11 +1,8 @@
 import React from "react";
 import * as S from "./style";
 import ServiceZap from "src/assets/ServiceZap.svg";
-import { useLocation } from "react-router-dom";
 
 const Service = () => {
-  const { pathname } = useLocation();
-
   return (
     <S.Container>
       <img src={ServiceZap} alt="서비스 로고" />
