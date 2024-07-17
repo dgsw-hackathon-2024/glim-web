@@ -144,12 +144,57 @@ export const Reports = styled.div`
 `;
 
 export const Report = styled.div`
-  width: 45%;
-  height: 35%;
+  width: 43%;
+  height: 33%;
 
   border-radius: 15px;
 
   background: #d9d9d9;
+
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  padding-left: 2%;
+  padding-top: 2%;
+
+  h1 {
+    font-family: "Pretendard";
+    color: #1c1d28;
+    font-weight: 800;
+    font-size: 18px;
+  }
+  span {
+    font-family: "Pretendard";
+    color: #1c1d28;
+    font-weight: 600;
+    font-size: 16px;
+  }
+`;
+
+export const CommitteeViewShadow = styled.div`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const CommitteeViewBox = styled.div`
+  width: 90%;
+  min-height: 185px;
+  position: absolute;
+  top: calc(50% - 92px);
+  left: calc(5%);
+  background-color: #d9d9d9;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 10px;
+  box-sizing: border-box;
 `;
 
 export const WriteReportButton = styled.img`
@@ -168,4 +213,71 @@ export const ChatBotButton = styled.img`
   position: absolute;
   left: 80%;
   top: 88%;
+`;
+
+export const UploadButton = styled.img`
+  cursor: pointer;
+  background: transparent;
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+`;
+
+export const CommitteeWriteBox = styled.div`
+  width: 100%;
+  height: 400px;
+  background: #d9d9d9;
+  border-radius: 30px;
+  margin-top: 70px;
+  padding: 30px;
+  box-sizing: border-box;
+  position: relative;
+`;
+
+export const CommitteeWriteTitle = styled.input`
+  width: 100%;
+  font-size: 20px;
+  font-weight: bolder;
+  font-family: "Pretendard-Regular", sans-serif;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  margin-bottom: 10px;
+`;
+
+export const CommitteeWriteContent = styled.textarea`
+  width: 100%;
+  font-size: 18px;
+  font-weight: 400;
+  font-family: "Pretendard-Regular", sans-serif;
+  height: 250px;
+  resize: none;
+  background-color: transparent;
+  outline: none;
+`;
+
+export const CommitteeTitle = styled.p`
+  font-weight: bolder;
+  font-family: "Pretendard", sans-serif;
+  background-color: transparent;
+`;
+
+export const CommitteeContent = styled.p`
+  width: 90%;
+  font-family: "Pretendard", sans-serif;
+  background-color: transparent;
+  font-weight: 100;
+`;
+
+export const CommitteeInfoWrap = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color: transparent;
+  height: 20px;
+`;
+export const CommitteeInfo = styled.p`
+  font-weight: 400;
+  font-family: "Pretendard", sans-serif;
+  background-color: transparent;
 `;

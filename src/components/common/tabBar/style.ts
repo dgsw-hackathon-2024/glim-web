@@ -19,5 +19,7 @@ export const Tab = styled.div`
   background-color: transparent;
   border-radius: 100px;
   font-family: "Pretendard-Regular", sans-serif;
+  font-size: 20px;
+  font-weight: 800;
   cursor: pointer;
 `;

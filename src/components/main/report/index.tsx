@@ -1,5 +1,5 @@
 import Header from "src/components/common/header";
-import React from "react";
+import React, { useEffect } from "react";
 import * as S from "./style";
 import ChatBotButton from "src/components/common/chatbotButton/index";
 import NavWriteReport from "src/assets/NavWriteReportButon.svg";
@@ -12,6 +12,7 @@ import { chatbotStore } from "src/store/chatbotStroe/chatbotStore";
 const Report = () => {
   const { ...report } = useReport();
   const chatBotClick = chatbotStore((state) => state.chatBotClick);
+
   return (
     <S.Container>
       <Header />
@@ -27,20 +28,50 @@ const Report = () => {
           </S.PageDescriptionWrap>
           <S.ReportWrap>
             <span>
-              진행중인 신고 총 <span style={{ color: "#6CF3C3" }}>4건</span>
+              진행중인 신고 총 <span style={{ color: "#6CF3C3" }}>{report.reportNum}건</span>
             </span>
             <S.Reports>
-              <S.Report></S.Report>
-              <S.Report></S.Report>
-              <S.Report></S.Report>
-              <S.Report></S.Report>
+              {report.reportList.reverse().map((item, idx) => (
+                <S.Report
+                  key={idx}
+                  onClick={() => {
+                    report.viewReport({
+                      id: item.id,
+                      title: item.title,
+                      contents: item.contents,
+                    });
+                  }}
+                >
+                  <h1>신고 #{item.id}</h1>
+                  <span>{item.title}</span>
+                </S.Report>
+              ))}
             </S.Reports>
           </S.ReportWrap>
         </S.ReportMainWrap>
         <S.WriteReportButton src={NavWriteReport} onClick={report.handleIsClicked} />
         <ChatBotButton />
       </S.Main>
-      {report.isClicked && <ReportModal />}
+
+      {report.reportDetail && (
+        <S.CommitteeViewShadow className="shadow" onClick={report.closeView}>
+          <S.CommitteeViewBox>
+            <S.CommitteeTitle style={{ fontSize: "20px", fontWeight: "800" }}>
+              신고 #{report.reportDetail?.id}
+            </S.CommitteeTitle>
+            <S.CommitteeContent style={{ fontSize: "17px", fontWeight: "700" }}>
+              {report.reportDetail?.title}
+            </S.CommitteeContent>
+            <S.CommitteeInfoWrap>
+              <S.CommitteeInfo style={{ fontSize: "14px", fontWeight: "500" }}>
+                {report.reportDetail?.contents}
+              </S.CommitteeInfo>
+            </S.CommitteeInfoWrap>
+          </S.CommitteeViewBox>
+        </S.CommitteeViewShadow>
+      )}
+
+      {report.isClicked && <ReportModal onClose={report.handleIsClicked} />}
       {chatBotClick === true ? <ChatBot /> : <></>}
     </S.Container>
   );
