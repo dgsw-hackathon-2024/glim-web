@@ -1,10 +1,6 @@
 import { UploadReportData } from "src/types/report/report.types";
 import React, { useCallback, useRef, useState } from "react";
-import {
-  PostReportMutation,
-  GetReportDetailQuery,
-  GetReportQuery,
-} from "src/queries/main/report/report.query";
+import { PostReportMutation, GetReportDetailQuery, GetReportQuery } from "src/queries/main/report/report.query";
 import lawBotSwal from "src/libs/swal/customSwal";
 
 const useReport = () => {
