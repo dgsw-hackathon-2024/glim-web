@@ -15,13 +15,16 @@ const TabBar = () => {
     if(pathname.pathname === '/law-analyze') {
       setTabState("AI");
     }
-    if (pathname.pathname === "/committee") {
+    if (
+      pathname.pathname === "/committee" ||
+      pathname.pathname === "/committee/write"
+    ) {
       setTabState("COMMITTEE");
     }
     if (pathname.pathname === "/report") {
       setTabState("REPORT");
     }
-  },[]);
+  },[pathname.pathname]);
 
   const toAi = () => {
     setTabState("AI");
