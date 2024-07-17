@@ -12,7 +12,8 @@ import Test2 from "../main/test/2/index";
 import Test3 from "../main/test/3/index";
 import Test4 from "../main/test/4/index";
 import Test5 from "../main/test/5/index";
-import Report from "../main/report";
+import Committee from "../main/committee";
+import CommitteeWrite from "../main/committee/write";
 
 const Router = () => {
   const queryClient = new QueryClient({
@@ -40,7 +41,8 @@ const Router = () => {
           <Route path="/test/3" element={<Test3 />} />
           <Route path="/test/4" element={<Test4 />} />
           <Route path="/test/5" element={<Test5 />} />
-          <Route path="/report" element={<Report />} />
+          <Route path="committee" element={<Committee />} />
+          <Route path="committee/write" element={<CommitteeWrite />} />
         </Routes>
       </QueryClientProvider>
     </BrowserRouter>
