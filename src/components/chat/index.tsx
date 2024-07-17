@@ -23,16 +23,17 @@ const ChatBot = () => {
             2. 소송 전 고려할 합의나 조정 절차가 있나요? <br />
             3. 소송 예상 비용은 얼마인가요?
           </S.ChatMessage>
-          {chat.chattingList.map((item, idx) => (
-            <>
-              <S.UserMessage>
-                <div style={{ padding: "20px" }}>{item.user}</div>
-              </S.UserMessage>
-              <S.ChatMessage>
-                <div style={{ padding: "20px" }}>{item.ai}</div>
-              </S.ChatMessage>
-            </>
-          ))}
+          {chat.isSuccess === true &&
+            chat.chattingList.map((item, idx) => (
+              <>
+                <S.UserMessage>
+                  <div style={{ padding: "20px" }}>{item.user}</div>
+                </S.UserMessage>
+                <S.ChatMessage>
+                  <div style={{ padding: "20px" }}>{item.ai}</div>
+                </S.ChatMessage>
+              </>
+            ))}
         </S.ChatWrap>
         <S.SendWrap>
           <S.MessageInput value={chat.chat} onChange={chat.handleUserChat} />

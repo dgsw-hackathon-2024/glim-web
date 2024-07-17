@@ -27,15 +27,12 @@ const useChat = () => {
         chat,
       })
       .then((res) => {
-        // setSendedChat([chat]);
-        // setAiChat([res.data]);
         setIsSuccess(true);
         let data = {
           user: chat,
           ai: res.data,
         };
         setChattingList((prev) => [...prev, data]);
-        // console.log(chattingList);
       });
   };
 

@@ -5,6 +5,9 @@ import UploadOff from "src/assets/uploadOff.svg";
 import { useEffect, useState } from "react";
 import useAnalyze from "src/hooks/lawAnalyze/useLawAnalyze";
 import TabBar from "../../common/tabBar";
+import ChatBotButton from "src/components/common/chatbotButton";
+import { chatbotStore } from "src/store/chatbotStroe/chatbotStore";
+import ChatBot from "src/components/chat";
 
 const LawAnalyze = () => {
   const [uploadEnable, setUploadEnable] = useState(false);
@@ -16,6 +19,8 @@ const LawAnalyze = () => {
       analyze.onSubmit();
     }
   };
+
+  const chatBotClick = chatbotStore((state) => state.chatBotClick);
 
   useEffect(() => {
     if (analyze.questionData && analyze.questionData.length > 0) {
@@ -41,18 +46,14 @@ const LawAnalyze = () => {
         <S.DetailTitle>궁금한 정책을 입력해 주세요.</S.DetailTitle>
         <S.DetailWrap>
           <S.QuestionInputWrap>
-            <S.QuestionInput
-              placeholder="어떤 것이 궁금한가요?"
-              onChange={analyze.handleUploadData}
-            />
-            <S.UploadButton
-              src={uploadEnable ? UploadOn : UploadOff}
-              onClick={handleSubmit}
-            />
+            <S.QuestionInput placeholder="어떤 것이 궁금한가요?" onChange={analyze.handleUploadData} />
+            <S.UploadButton src={uploadEnable ? UploadOn : UploadOff} onClick={handleSubmit} />
+            <ChatBotButton />
           </S.QuestionInputWrap>
           <S.AnserWrap>{analyze.response}</S.AnserWrap>
         </S.DetailWrap>
       </S.View>
+      {chatBotClick === true ? <ChatBot /> : <></>}
     </S.Container>
   );
 };

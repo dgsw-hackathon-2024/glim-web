@@ -1,15 +1,17 @@
 import Header from "src/components/common/header";
 import React from "react";
 import * as S from "./style";
-import ChatBotButton from "src/assets/chatbotButon.svg";
+import ChatBotButton from "src/components/common/chatbotButton/index";
 import NavWriteReport from "src/assets/NavWriteReportButon.svg";
 import ReportModal from "./reportModal";
 import useReport from "src/hooks/report/useReport";
 import ChatBot from "src/components/chat";
 import TabBar from "src/components/common/tabBar";
+import { chatbotStore } from "src/store/chatbotStroe/chatbotStore";
 
 const Report = () => {
   const { ...report } = useReport();
+  const chatBotClick = chatbotStore((state) => state.chatBotClick);
   return (
     <S.Container>
       <Header />
@@ -36,10 +38,10 @@ const Report = () => {
           </S.ReportWrap>
         </S.ReportMainWrap>
         <S.WriteReportButton src={NavWriteReport} onClick={report.handleIsClicked} />
-        <S.ChatBotButton src={ChatBotButton} onClick={report.handleChatbotClick} />
+        <ChatBotButton />
       </S.Main>
       {report.isClicked && <ReportModal />}
-      {report.chatbotClick === true ? <ChatBot /> : <></>}
+      {chatBotClick === true ? <ChatBot /> : <></>}
     </S.Container>
   );
 };

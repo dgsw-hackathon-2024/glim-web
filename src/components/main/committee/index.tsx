@@ -1,11 +1,13 @@
 import Header from "src/components/common/header";
 import * as S from "./style";
 import Thumbup from "src/assets/thumbup.svg";
-import ChatBotButton from "src/assets/chatbotButon.svg";
+import ChatBotButton from "src/components/common/chatbotButton/index";
 import NavWriteReport from "src/assets/NavWriteReportButon.svg";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import TabBar from "src/components/common/tabBar";
+import { chatbotStore } from "src/store/chatbotStroe/chatbotStore";
+import ChatBot from "src/components/chat";
 
 interface Dummy {
   id: number;
@@ -58,6 +60,8 @@ const Committee = () => {
       });
     }
   };
+
+  const chatBotClick = chatbotStore((state) => state.chatBotClick);
 
   const navigate = useNavigate();
 
@@ -121,8 +125,9 @@ const Committee = () => {
           </S.CommitteeViewBox>
         </S.CommitteeViewShadow>
       ) : null}
-      <S.ChatBotButton src={ChatBotButton} />
+      <ChatBotButton />
       <S.WriteReportButton src={NavWriteReport} onClick={() => navigate("/committee/write")} />
+      {chatBotClick === true ? <ChatBot /> : <></>}
     </S.Container>
   );
 };

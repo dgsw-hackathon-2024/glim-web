@@ -57,7 +57,6 @@ export const ChatBotButton = styled.img`
 
 export const ChatWrap = styled.div`
   width: 100%;
-  height: max-content;
 
   display: flex;
   flex-direction: column;
@@ -83,9 +82,6 @@ export const ChatMessage = styled.div`
   align-items: center;
   justify-content: center;
 
-  min-height: 10%;
-
-  height: auto;
   width: 70%;
 
   line-height: 130%;
