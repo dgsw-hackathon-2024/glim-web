@@ -11,11 +11,15 @@ const useReport = () => {
   const [isClicked, setIsClicked] = useState<boolean>(false);
   const [postClick, setPostClick] = useState<boolean>(false);
   const handleUploadData = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => {
+    (
+      e:
+        | React.ChangeEvent<HTMLInputElement>
+        | React.ChangeEvent<HTMLTextAreaElement>
+    ) => {
       const { name, value } = e.target;
       setUploadData((prev) => ({ ...prev, [name]: value }));
     },
-    [setUploadData],
+    [setUploadData]
   );
 
   const handleIsClicked = () => {
@@ -41,13 +45,17 @@ const useReport = () => {
         onError: () => {
           lawBotSwal.errorToast("알 수 없는 에러가 발생하였습니다.");
         },
-      },
+      }
     );
   };
 
   const getReportList = () => {
     const [{ data: reportList }] = GetReportQuery();
-    if (reportList !== undefined && reportList !== undefined && reportList.data.length > 0) {
+    if (
+      reportList !== undefined &&
+      reportList !== undefined &&
+      reportList.data.length > 0
+    ) {
       return reportList;
     }
   };
